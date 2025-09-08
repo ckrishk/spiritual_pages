@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pitru Paksha: An Interactive Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FFF8F0;
+            color: #4A2E2D;
+        }
+        h1, h2, h3 {
+            font-family: 'Lora', serif;
+        }
+        .nav-link {
+            position: relative;
+            transition: color 0.3s;
+            color: #8C5A3A;
+        }
+        .nav-link:hover {
+            color: #D97706;
+        }
+        .nav-link.active {
+            color: #D97706;
+            font-weight: 600;
+        }
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #D97706;
+        }
+        .tab-btn {
+            transition: all 0.3s;
+        }
+        .tab-btn.active {
+            background-color: #D97706;
+            color: #FFFFFF;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .card {
+            background-color: #FFFFFF;
+            border: 1px solid #E5D8CC;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .guideline-card {
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            min-height: 200px;
+        }
+        section {
+            padding-top: 80px;
+            margin-top: -80px;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-amber-800/10 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <a href="#home" class="text-xl font-semibold text-amber-900">Pitru Paksha</a>
+                <div class="hidden md:flex space-x-8" id="nav-menu">
+                    <a href="#significance" class="nav-link">Significance</a>
+                    <a href="#legends" class="nav-link">Legends</a>
+                    <a href="#rituals" class="nav-link">Rituals</a>
+                    <a href="#guidelines" class="nav-link">Guidelines</a>
+                    <a href="#celebrations" class="nav-link">Regional Celebrations</a>
+                    <a href="#relevance" class="nav-link">Modern Relevance</a>
+                    <a href="#comparison" class="nav-link">Comparison</a>
+                </div>
+                <button id="mobile-menu-button" class="md:hidden text-amber-900">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                <a href="#significance" class="block py-2 text-center nav-link">Significance</a>
+                <a href="#legends" class="block py-2 text-center nav-link">Legends</a>
+                <a href="#rituals" class="block py-2 text-center nav-link">Rituals</a>
+                <a href="#guidelines" class="block py-2 text-center nav-link">Guidelines</a>
+                <a href="#celebrations" class="block py-2 text-center nav-link">Regional Celebrations</a>
+                <a href="#relevance" class="block py-2 text-center nav-link">Modern Relevance</a>
+                <a href="#comparison" class="block py-2 text-center nav-link">Comparison</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+        <section id="home" class="text-center pt-0 mt-0 mb-24">
+            <div class="w-full h-96 rounded-lg overflow-hidden mb-8 flex items-center justify-center">
+                <img src="https://github.com/ckrishk/spiritual_pages/blob/main/family.png?raw=true" alt="A Hindu family by the bank of a river praying" class="w-full h-full object-cover rounded-lg">
+            </div>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-amber-900 mb-4">Pitru Paksha: The Fortnight of Ancestors</h1>
+            <p class="text-lg md:text-xl text-amber-800 leading-relaxed max-w-3xl mx-auto">
+                Discover the profound significance of Pitru Paksha, a 16-day lunar period dedicated to honoring ancestors. This guide explores its history, rituals, and enduring relevance in modern life.
+            </p>
+        </section>
+
+        <section id="significance" class="mb-24">
+            <h2 class="text-3xl font-bold mb-6 text-center">The Significance</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                <div class="space-y-4 text-amber-800">
+                    <p>
+                        Pitru Paksha is a sacred period in the Hindu calendar where followers pay homage to their ancestors by performing rites and rituals, primarily known as Shraddha. It is believed that during this time, the souls of ancestors temporarily leave their realm and visit Earth to receive the offerings made by their descendants.
+                    </p>
+                    <p>
+                        The core belief is that performing these rituals helps their ancestors find peace and salvation (moksha). It's a powerful expression of gratitude and respect, strengthening the bond between generations. The offerings, including food and water, are thought to nourish the souls of the deceased.
+                    </p>
+                </div>
+                <div class="flex justify-center items-center">
+                    <img src="https://placehold.co/400x400/D97706/FFFFFF?text=Spiritual+Bond" alt="A symbolic image representing a spiritual bond and gratitude" class="w-48 h-48 md:w-64 md:h-64 rounded-full border-4 border-amber-500 shadow-lg">
+                </div>
+            </div>
+        </section>
+
+        <section id="legends" class="mb-24">
+            <h2 class="text-3xl font-bold mb-6 text-center">Legends & Origins</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                <div class="flex justify-center items-center">
+                    <img src="https://placehold.co/400x400/D97706/FFFFFF?text=The+Legend+of+Karna" alt="An image depicting a legendary figure offering food" class="w-48 h-48 md:w-64 md:h-64 rounded-full border-4 border-amber-500 shadow-lg">
+                </div>
+                <div class="space-y-4 text-amber-800">
+                    <p>
+                        One of the most famous legends is that of Karna from the Mahabharata. After his death, his soul ascended to the heavens, but instead of food, he was offered gold and jewels. When he asked the reason, Indra, the king of gods, told him that he had donated only gold on Earth but never food to his ancestors.
+                    </p>
+                    <p>
+                        To rectify this, Karna was allowed to return to Earth for a 16-day period to perform Shraddha and offer food and water. This period is now known as Pitru Paksha. This story highlights the immense importance of offering food and water to ancestors to help them in their journey in the afterlife.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="rituals" class="mb-24">
+            <h2 class="text-3xl font-bold mb-6 text-center">Key Rituals</h2>
+            <div class="flex flex-col md:flex-row justify-center items-center md:space-x-8 mb-8">
+                <button id="tab-pind-daan" class="tab-btn active px-6 py-2 rounded-full mb-2 md:mb-0">Pind Daan</button>
+                <button id="tab-tarpan" class="tab-btn px-6 py-2 rounded-full mb-2 md:mb-0">Tarpan</button>
+                <button id="tab-brahmbhoj" class="tab-btn px-6 py-2 rounded-full">Brahmbhoj</button>
+            </div>
+
+            <div id="tab-content" class="rounded-xl p-8 bg-white shadow-lg text-amber-800">
+                <!-- Content for Pind Daan -->
+                <div id="content-pind-daan" class="space-y-4">
+                    <h3 class="text-2xl font-semibold mb-2 text-amber-900">Pind Daan: The Rice Balls Offering</h3>
+                    <p>
+                        Pind Daan is a significant ritual where a person offers "Pindas" (cooked rice mixed with black sesame seeds, honey, and barley flour) to their ancestors. These balls symbolize the body of the deceased and are offered to satisfy their spiritual needs.
+                    </p>
+                    <div class="flex justify-center my-6">
+                        <img src="https://placehold.co/300x200/4A2E2D/FFF8F0?text=Pind+Daan+Offering" alt="An image of rice balls and other offerings" class="w-48 h-32">
+                    </div>
+                </div>
+
+                <!-- Content for Tarpan -->
+                <div id="content-tarpan" class="space-y-4 hidden">
+                    <h3 class="text-2xl font-semibold mb-2 text-amber-900">Tarpan: The Water Offering</h3>
+                    <p>
+                        Tarpan involves offering water mixed with black sesame seeds to the ancestors. It is performed by the male descendants, and the water is poured from a specific vessel into the river or on the ground. This ritual is a gesture of showing respect and fulfilling one's duty towards the family lineage.
+                    </p>
+                    <div class="flex justify-center my-6">
+                         <img src="https://placehold.co/300x200/4A2E2D/FFF8F0?text=Water+Offering" alt="An image of a hand offering water" class="w-48 h-32">
+                    </div>
+                </div>
+
+                <!-- Content for Brahmbhoj -->
+                <div id="content-brahmbhoj" class="space-y-4 hidden">
+                    <h3 class="text-2xl font-semibold mb-2 text-amber-900">Brahmbhoj: Feeding the Priests</h3>
+                    <p>
+                        Brahmbhoj is the act of feeding Brahmin priests as an offering to the ancestors. It is believed that the food offered to the priests reaches the ancestors, satisfying them and ensuring their peaceful journey in the afterlife. The feast typically includes a variety of vegetarian dishes.
+                    </p>
+                    <div class="flex justify-center my-6">
+                        <img src="https://placehold.co/300x200/4A2E2D/FFF8F0?text=Priest+being+offered+food" alt="An image of a vegetarian meal being offered" class="w-48 h-32">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="guidelines" class="mb-24">
+            <h2 class="text-3xl font-bold mb-6 text-center">Important Guidelines</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Guideline Card 1 -->
+                <div class="guideline-card bg-amber-50 rounded-lg p-6 shadow-md text-amber-800 flex flex-col items-center text-center">
+                    <img src="https://placehold.co/150x150/4A2E2D/FFF8F0?text=Crow+Offering" alt="An image of a crow or pigeon being fed" class="w-20 h-20 mb-4 rounded-full">
+                    <h3 class="text-xl font-semibold mb-2 text-amber-900">Offering to Pigeons</h3>
+                    <p>It is believed that the offerings reach ancestors through animals, especially crows and pigeons. Feeding them is a key ritual.</p>
+                </div>
+
+                <!-- Guideline Card 2 -->
+                <div class="guideline-card bg-amber-50 rounded-lg p-6 shadow-md text-amber-800 flex flex-col items-center text-center">
+                    <img src="https://placehold.co/150x150/4A2E2D/FFF8F0?text=Vegetarian+Food" alt="An image of vegetarian food" class="w-20 h-20 mb-4 rounded-full">
+                    <h3 class="text-xl font-semibold mb-2 text-amber-900">Strict Vegetarianism</h3>
+                    <p>During this period, consumption of non-vegetarian food, alcohol, and tobacco is strictly prohibited to maintain spiritual purity.</p>
+                </div>
+
+                <!-- Guideline Card 3 -->
+                <div class="guideline-card bg-amber-50 rounded-lg p-6 shadow-md text-amber-800 flex flex-col items-center text-center">
+                    <img src="https://placehold.co/150x150/4A2E2D/FFF8F0?text=Sacred+Place" alt="An image of a sacred temple or river" class="w-20 h-20 mb-4 rounded-full">
+                    <h3 class="text-xl font-semibold mb-2 text-amber-900">No Auspicious Events</h3>
+                    <p>It is generally considered inauspicious to start new ventures or celebrate joyous events like weddings during Pitru Paksha.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="celebrations" class="mb-24">
+            <h2 class="text-3xl font-bold mb-6 text-center">Celebrations Across India</h2>
+            <div class="space-y-8 text-amber-800">
+                <p>
+                    While the core principles of Pitru Paksha remain the same, the rituals and traditions vary slightly across different regions of India.
+                </p>
+                <div class="bg-white rounded-xl p-6 shadow-lg">
+                    <h3 class="text-xl font-semibold mb-2 text-amber-900">North India & Bihar: Gaya's Significance</h3>
+                    <p>
+                        In North India, especially in **Gaya, Bihar**, Pitru Paksha holds immense importance. It is believed that performing the Shraddha ceremony at the sacred Gaya Kshetra, particularly at the Vishnupad Temple, can grant salvation to seven generations of ancestors.
+                    </p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-lg">
+                    <h3 class="text-xl font-semibold mb-2 text-amber-900">West Bengal: Mahalaya</h3>
+                    <p>
+                        In West Bengal, the final day of Pitru Paksha, known as **Mahalaya**, is a grand occasion. It marks the end of the mourning period and the beginning of the Durga Puja festival. Mahalaya is celebrated with special prayers and the famous chanting of the Chandi Path, believed to invoke the goddess Durga.
+                    </p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-lg">
+                    <h3 class="text-xl font-semibold mb-2 text-amber-900">South India: Ancestral Offerings</h3>
+                    <p>
+                        In South India, the observance of Pitru Paksha is similar, with a strong focus on performing Shraddha and Tarpan rituals. Families often perform the rituals at home or by a river. Specific offerings and prayers vary, but the fundamental belief in honoring and seeking blessings from ancestors remains the same.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="relevance" class="mb-24">
+            <h2 class="text-3xl font-bold mb-6 text-center">Modern Relevance</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                <div class="space-y-4 text-amber-800">
+                    <p>
+                        In today's fast-paced world, Pitru Paksha serves as a reminder of our roots and the importance of family values. It encourages us to take a moment to reflect on our ancestors' sacrifices and contributions, fostering a sense of gratitude and humility.
+                    </p>
+                    <p>
+                        Beyond the rituals, it's a time for families to come together, share stories, and reinforce their bonds. The practice encourages respect for elders and highlights the cyclical nature of life, death, and remembrance.
+                    </p>
+                </div>
+                <div class="flex justify-center items-center">
+                    <img src="https://placehold.co/400x400/D97706/FFFFFF?text=Modern+Relevance" alt="A symbolic image of a tree with deep roots" class="w-48 h-48 md:w-64 md:h-64 rounded-full border-4 border-amber-500 shadow-lg">
+                </div>
+            </div>
+        </section>
+
+        <section id="comparison" class="mb-24">
+            <h2 class="text-3xl font-bold mb-6 text-center">Comparison with other Cultures</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-amber-800">
+                <div class="card p-6">
+                    <h3 class="text-xl font-semibold mb-2 text-amber-900">Day of the Dead (Mexico)</h3>
+                    <p>
+                        This is a multi-day holiday where families pray for and remember friends and family members who have died. It is seen as a celebration of life and death, with colorful altars and festive gatherings.
+                    </p>
+                </div>
+                <div class="card p-6">
+                    <h3 class="text-xl font-semibold mb-2 text-amber-900">Qingming Festival (China)</h3>
+                    <p>
+                        Also known as Tomb-Sweeping Day, this is a time for families to visit the graves of their ancestors to clean the tombs, pray to the deceased, and make ritual offerings.
+                    </p>
+                </div>
+                <div class="card p-6">
+                    <h3 class="text-xl font-semibold mb-2 text-amber-900">Obon Festival (Japan)</h3>
+                    <p>
+                        This Buddhist festival honors the spirits of one's ancestors. Families return to their ancestral homes, clean graves, and make food offerings. The festival often concludes with floating lanterns.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <footer class="bg-amber-800/10 py-8 mt-12 text-center text-sm text-amber-900">
+        <p>&copy; 2024 Pitru Paksha Guide. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section');
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('#tab-content > div');
+
+            // Tab functionality
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    tabContents.forEach(content => content.classList.add('hidden'));
+                    const targetId = button.id.replace('tab-', 'content-');
+                    document.getElementById(targetId).classList.remove('hidden');
+                });
+            });
+
+            // Mobile menu toggle
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Function to update active link
+            const updateActiveLink = () => {
+                let currentActive = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 100; // Offset for fixed header
+                    if (window.scrollY >= sectionTop) {
+                        currentActive = section.id;
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.href.endsWith(currentActive)) {
+                        link.classList.add('active');
+                    }
+                });
+            };
+
+            // Event listener for scroll to update active link
+            window.addEventListener('scroll', updateActiveLink);
+            updateActiveLink(); // Initial call
+        });
+    </script>
+</body>
+</html>
