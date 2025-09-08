@@ -18,7 +18,7 @@
         h1, h2, h3 {
             font-family: 'Lora', serif;
         }
-        .nav-link {raw
+        .nav-link {
             position: relative;
             transition: color 0.3s;
             color: #8C5A3A;
@@ -101,9 +101,9 @@
     </header>
 
     <main class="container mx-auto px-6 py-12">
-        <section id="home" class="text-center pt-0 mt-0 mb-30">
+        <section id="home" class="text-center pt-0 mt-0 mb-24">
             <div class="w-full h-96 rounded-lg overflow-hidden mb-8 flex items-center justify-center">
-                <img src="https://github.com/ckrishk/spiritual_pages/blob/main/pitru_paksha/family.png" alt="A Hindu family by the bank of a river praying" class="w-full h-full object-cover rounded-lg">
+                <img src="https://github.com/ckrishk/spiritual_pages/blob/main/pitru_paksha/family-praying.png?raw=true" alt="A Hindu family by the bank of a river praying" class="w-full h-full object-contain rounded-lg">
             </div>
             <h1 class="text-4xl md:text-5xl font-extrabold text-amber-900 mb-4">Pitru Paksha: The Fortnight of Ancestors</h1>
             <p class="text-lg md:text-xl text-amber-800 leading-relaxed max-w-3xl mx-auto">
@@ -122,69 +122,100 @@
                         The core belief is that performing these rituals helps their ancestors find peace and salvation (moksha). It's a powerful expression of gratitude and respect, strengthening the bond between generations. The offerings, including food and water, are thought to nourish the souls of the deceased.
                     </p>
                 </div>
-                <div class="flex justify-center items-center">
-                    <img src="https://placehold.co/400x400/D97706/FFFFFF?text=Spiritual+Bond" alt="A symbolic image representing a spiritual bond and gratitude" class="w-48 h-48 md:w-64 md:h-64 rounded-full border-4 border-amber-500 shadow-lg">
+                <div class="flex justify-center items-center relative w-full h-64 md:h-80 rounded-lg">
+                    <img src="https://github.com/ckrishk/spiritual_pages/blob/main/pitru_paksha/download.png?raw=true" alt="A person praying symbolizing a connection to ancestors" class="w-full h-full object-cover rounded-lg shadow-lg">
                 </div>
             </div>
         </section>
 
         <section id="legends" class="mb-24">
             <h2 class="text-3xl font-bold mb-6 text-center">Legends & Origins</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-                <div class="flex justify-center items-center">
-                    <img src="https://placehold.co/400x400/D97706/FFFFFF?text=The+Legend+of+Karna" alt="An image depicting a legendary figure offering food" class="w-48 h-48 md:w-64 md:h-64 rounded-full border-4 border-amber-500 shadow-lg">
+            <div class="flex flex-col md:flex-row justify-center items-center md:space-x-8 mb-8">
+                <button id="tab-karna" class="tab-btn active px-6 py-2 rounded-full mb-2 md:mb-0">Karna</button>
+                <button id="tab-bhagiratha" class="tab-btn px-6 py-2 rounded-full mb-2 md:mb-0">Bhagiratha</button>
+                <button id="tab-garuda" class="tab-btn px-6 py-2 rounded-full">Garuda Purana</button>
+            </div>
+            <div id="tab-legends-content" class="rounded-xl p-8 bg-white shadow-lg text-amber-800">
+                <!-- Content for Karna -->
+                <div id="content-karna" class="space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                        <div class="flex justify-center items-center md:order-2 relative w-full h-64 rounded-lg">
+                            <img src="https://github.com/ckrishk/spiritual_pages/blob/main/pitru_paksha/karna-mahabharata.png?raw=true" alt="An image depicting Karna in a battle scene" class="w-full h-full object-cover rounded-lg shadow-lg">
+                        </div>
+                        <div class="space-y-4 md:order-1">
+                            <h3 class="text-2xl font-semibold mb-2 text-amber-900">The Legend of Karna</h3>
+                            <p>
+                                One of the most famous legends is that of Karna from the Mahabharata. After his death, his soul ascended to the heavens, but instead of food, he was offered gold and jewels. When he asked the reason, Indra, the king of gods, told him that he had donated only gold on Earth but never food to his ancestors.
+                            </p>
+                            <p>
+                                To rectify this, Karna was allowed to return to Earth for a 16-day period to perform Shraddha and offer food and water. This period is now known as Pitru Paksha. This story highlights the immense importance of offering food and water to ancestors to help them in their journey in the afterlife.
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <div class="space-y-4 text-amber-800">
-                    <p>
-                        One of the most famous legends is that of Karna from the Mahabharata. After his death, his soul ascended to the heavens, but instead of food, he was offered gold and jewels. When he asked the reason, Indra, the king of gods, told him that he had donated only gold on Earth but never food to his ancestors.
-                    </p>
-                    <p>
-                        To rectify this, Karna was allowed to return to Earth for a 16-day period to perform Shraddha and offer food and water. This period is now known as Pitru Paksha. This story highlights the immense importance of offering food and water to ancestors to help them in their journey in the afterlife.
-                    </p>
+                <!-- Content for Bhagiratha -->
+                <div id="content-bhagiratha" class="space-y-4 hidden">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                        <div class="flex justify-center items-center relative w-full h-64 rounded-lg">
+                            <img src="https://github.com/ckrishk/spiritual_pages/blob/main/pitru_paksha/bhagiratha.png?raw=true" alt="An image of King Bhagiratha performing penance" class="w-full h-full object-cover rounded-lg shadow-lg">
+                        </div>
+                        <div class="space-y-4">
+                            <h3 class="text-2xl font-semibold mb-2 text-amber-900">The Legend of Bhagiratha</h3>
+                            <p>
+                                Another key legend involves King Bhagiratha, who performed severe penance for thousands of years to bring the holy River Ganga to Earth. His goal was to purify the souls of his ancestors, the 60,000 sons of King Sagara, who had been burnt to ashes by the sage Kapila's curse.
+                            </p>
+                            <p>
+                                The story symbolizes the profound duty of descendants to perform rituals that can grant salvation and spiritual upliftment to their ancestors, reinforcing the importance of ancestral veneration.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Content for Garuda Purana -->
+                <div id="content-garuda" class="space-y-4 hidden">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                        <div class="flex justify-center items-center md:order-2 relative w-full h-64 rounded-lg">
+                            <img src="https://github.com/ckrishk/spiritual_pages/blob/main/pitru_paksha/garuda-purana.png?raw=true" alt="An image representing the Garuda Purana with a symbolic depiction of souls and death" class="w-full h-full object-contain rounded-lg shadow-lg">
+                        </div>
+                        <div class="space-y-4 md:order-1">
+                            <h3 class="text-2xl font-semibold mb-2 text-amber-900">The Garuda Purana</h3>
+                            <p>
+                                The Garuda Purana, a sacred Hindu text, describes the journey of the soul after death. It emphasizes the importance of performing Shraddha and other death rituals to ensure the deceased soul's peaceful transition.
+                            </p>
+                            <p>
+                                According to the text, without these rituals, the soul may wander aimlessly. The offerings made during Pitru Paksha are believed to provide the soul with the necessary strength to continue its journey, highlighting the critical role of the living in supporting the spiritual well-being of the deceased.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section id="rituals" class="mb-24">
             <h2 class="text-3xl font-bold mb-6 text-center">Key Rituals</h2>
-            <div class="flex flex-col md:flex-row justify-center items-center md:space-x-8 mb-8">
-                <button id="tab-pind-daan" class="tab-btn active px-6 py-2 rounded-full mb-2 md:mb-0">Pind Daan</button>
-                <button id="tab-tarpan" class="tab-btn px-6 py-2 rounded-full mb-2 md:mb-0">Tarpan</button>
-                <button id="tab-brahmbhoj" class="tab-btn px-6 py-2 rounded-full">Brahmbhoj</button>
-            </div>
-
-            <div id="tab-content" class="rounded-xl p-8 bg-white shadow-lg text-amber-800">
-                <!-- Content for Pind Daan -->
-                <div id="content-pind-daan" class="space-y-4">
-                    <h3 class="text-2xl font-semibold mb-2 text-amber-900">Pind Daan: The Rice Balls Offering</h3>
-                    <p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Pind Daan Card -->
+                <div class="card p-6 flex flex-col items-center text-center">
+                    <img src="https://github.com/ckrishk/spiritual_pages/blob/main/pitru_paksha/pind-daan.png?raw=true" alt="An image of rice balls and other offerings" class="w-48 h-32 mb-4 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2 text-amber-900">Pind Daan: The Rice Balls Offering</h3>
+                    <p class="text-amber-800">
                         Pind Daan is a significant ritual where a person offers "Pindas" (cooked rice mixed with black sesame seeds, honey, and barley flour) to their ancestors. These balls symbolize the body of the deceased and are offered to satisfy their spiritual needs.
                     </p>
-                    <div class="flex justify-center my-6">
-                        <img src="https://placehold.co/300x200/4A2E2D/FFF8F0?text=Pind+Daan+Offering" alt="An image of rice balls and other offerings" class="w-48 h-32">
-                    </div>
                 </div>
-
-                <!-- Content for Tarpan -->
-                <div id="content-tarpan" class="space-y-4 hidden">
-                    <h3 class="text-2xl font-semibold mb-2 text-amber-900">Tarpan: The Water Offering</h3>
-                    <p>
-                        Tarpan involves offering water mixed with black sesame seeds to the ancestors. It is performed by the male descendants, and the water is poured from a specific vessel into the river or on the ground. This ritual is a gesture of showing respect and fulfilling one's duty towards the family lineage.
+                <!-- Tarpan Card -->
+                <div class="card p-6 flex flex-col items-center text-center">
+                    <img src="https://github.com/ckrishk/spiritual_pages/blob/main/pitru_paksha/tarpan.png?raw=true" alt="An image of a hand offering water" class="w-48 h-32 mb-4 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2 text-amber-900">Tarpan: The Water Offering</h3>
+                    <p class="text-amber-800">
+                        Tarpan involves offering water mixed with black sesame seeds to the ancestors. It is performed by the male descendants, and the water is poured from a specific vessel into the river or on the ground.
                     </p>
-                    <div class="flex justify-center my-6">
-                         <img src="https://placehold.co/300x200/4A2E2D/FFF8F0?text=Water+Offering" alt="An image of a hand offering water" class="w-48 h-32">
-                    </div>
                 </div>
-
-                <!-- Content for Brahmbhoj -->
-                <div id="content-brahmbhoj" class="space-y-4 hidden">
-                    <h3 class="text-2xl font-semibold mb-2 text-amber-900">Brahmbhoj: Feeding the Priests</h3>
-                    <p>
-                        Brahmbhoj is the act of feeding Brahmin priests as an offering to the ancestors. It is believed that the food offered to the priests reaches the ancestors, satisfying them and ensuring their peaceful journey in the afterlife. The feast typically includes a variety of vegetarian dishes.
+                <!-- Brahmbhoj Card -->
+                <div class="card p-6 flex flex-col items-center text-center">
+                    <img src="https://github.com/ckrishk/spiritual_pages/blob/main/pitru_paksha/brahmbhoj.png?raw=true" alt="An image of a vegetarian meal being offered" class="w-48 h-32 mb-4 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2 text-amber-900">Brahmbhoj: Feeding the Priests</h3>
+                    <p class="text-amber-800">
+                        Brahmbhoj is the act of feeding Brahmin priests as an offering to the ancestors. The feast typically includes a variety of vegetarian dishes.
                     </p>
-                    <div class="flex justify-center my-6">
-                        <img src="https://placehold.co/300x200/4A2E2D/FFF8F0?text=Priest+being+offered+food" alt="An image of a vegetarian meal being offered" class="w-48 h-32">
-                    </div>
                 </div>
             </div>
         </section>
@@ -194,21 +225,21 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Guideline Card 1 -->
                 <div class="guideline-card bg-amber-50 rounded-lg p-6 shadow-md text-amber-800 flex flex-col items-center text-center">
-                    <img src="https://placehold.co/150x150/4A2E2D/FFF8F0?text=Crow+Offering" alt="An image of a crow or pigeon being fed" class="w-20 h-20 mb-4 rounded-full">
+                    <img src="https://github.com/ckrishk/spiritual_pages/blob/main/pitru_paksha/offering.png?raw=true" alt="An image of a crow or pigeon being fed" class="w-24 h-24 mb-4 rounded-lg object-cover">
                     <h3 class="text-xl font-semibold mb-2 text-amber-900">Offering to Pigeons</h3>
                     <p>It is believed that the offerings reach ancestors through animals, especially crows and pigeons. Feeding them is a key ritual.</p>
                 </div>
 
                 <!-- Guideline Card 2 -->
                 <div class="guideline-card bg-amber-50 rounded-lg p-6 shadow-md text-amber-800 flex flex-col items-center text-center">
-                    <img src="https://placehold.co/150x150/4A2E2D/FFF8F0?text=Vegetarian+Food" alt="An image of vegetarian food" class="w-20 h-20 mb-4 rounded-full">
+                    <img src="https://github.com/ckrishk/spiritual_pages/blob/main/pitru_paksha/diet.png?raw=true" alt="An image of vegetarian food" class="w-24 h-24 mb-4 rounded-lg object-cover">
                     <h3 class="text-xl font-semibold mb-2 text-amber-900">Strict Vegetarianism</h3>
                     <p>During this period, consumption of non-vegetarian food, alcohol, and tobacco is strictly prohibited to maintain spiritual purity.</p>
                 </div>
 
                 <!-- Guideline Card 3 -->
                 <div class="guideline-card bg-amber-50 rounded-lg p-6 shadow-md text-amber-800 flex flex-col items-center text-center">
-                    <img src="https://placehold.co/150x150/4A2E2D/FFF8F0?text=Sacred+Place" alt="An image of a sacred temple or river" class="w-20 h-20 mb-4 rounded-full">
+                    <img src="https://github.com/ckrishk/spiritual_pages/blob/main/pitru_paksha/events.png?raw=true" alt="An image of a sacred temple or river" class="w-24 h-24 mb-4 rounded-lg object-cover">
                     <h3 class="text-xl font-semibold mb-2 text-amber-900">No Auspicious Events</h3>
                     <p>It is generally considered inauspicious to start new ventures or celebrate joyous events like weddings during Pitru Paksha.</p>
                 </div>
@@ -221,23 +252,32 @@
                 <p>
                     While the core principles of Pitru Paksha remain the same, the rituals and traditions vary slightly across different regions of India.
                 </p>
-                <div class="bg-white rounded-xl p-6 shadow-lg">
-                    <h3 class="text-xl font-semibold mb-2 text-amber-900">North India & Bihar: Gaya's Significance</h3>
-                    <p>
-                        In North India, especially in **Gaya, Bihar**, Pitru Paksha holds immense importance. It is believed that performing the Shraddha ceremony at the sacred Gaya Kshetra, particularly at the Vishnupad Temple, can grant salvation to seven generations of ancestors.
-                    </p>
+                <div class="bg-white rounded-xl p-6 shadow-lg flex flex-col md:flex-row items-center gap-6">
+                    <img src="https://github.com/ckrishk/spiritual_pages/blob/main/pitru_paksha/gaya.png?raw=true" alt="Vishnupad Temple in Gaya" class="w-full h-48 md:w-32 md:h-32 object-cover rounded-lg flex-shrink-0">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2 text-amber-900">North India & Bihar: Gaya's Significance</h3>
+                        <p>
+                            In North India, especially in <b>Gaya, Bihar</b>, Pitru Paksha holds immense importance. It is believed that performing the Shraddha ceremony at the sacred Gaya Kshetra, particularly at the Vishnupad Temple, can grant salvation to seven generations of ancestors.
+                        </p>
+                    </div>
                 </div>
-                <div class="bg-white rounded-xl p-6 shadow-lg">
-                    <h3 class="text-xl font-semibold mb-2 text-amber-900">West Bengal: Mahalaya</h3>
-                    <p>
-                        In West Bengal, the final day of Pitru Paksha, known as **Mahalaya**, is a grand occasion. It marks the end of the mourning period and the beginning of the Durga Puja festival. Mahalaya is celebrated with special prayers and the famous chanting of the Chandi Path, believed to invoke the goddess Durga.
-                    </p>
+                <div class="bg-white rounded-xl p-6 shadow-lg flex flex-col md:flex-row items-center gap-6">
+                    <img src="https://github.com/ckrishk/spiritual_pages/blob/main/pitru_paksha/wb.png?raw=true" alt="Mahalaya festival in West Bengal" class="w-full h-48 md:w-32 md:h-32 object-cover rounded-lg flex-shrink-0">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2 text-amber-900">West Bengal: Mahalaya</h3>
+                        <p>
+                            In West Bengal, the final day of Pitru Paksha, known as <b>Mahalaya</b>, is a grand occasion. It marks the end of the mourning period and the beginning of the Durga Puja festival. Mahalaya is celebrated with special prayers and the famous chanting of the Chandi Path, believed to invoke the goddess Durga.
+                        </p>
+                    </div>
                 </div>
-                <div class="bg-white rounded-xl p-6 shadow-lg">
-                    <h3 class="text-xl font-semibold mb-2 text-amber-900">South India: Ancestral Offerings</h3>
-                    <p>
-                        In South India, the observance of Pitru Paksha is similar, with a strong focus on performing Shraddha and Tarpan rituals. Families often perform the rituals at home or by a river. Specific offerings and prayers vary, but the fundamental belief in honoring and seeking blessings from ancestors remains the same.
-                    </p>
+                <div class="bg-white rounded-xl p-6 shadow-lg flex flex-col md:flex-row items-center gap-6">
+                    <img src="https://github.com/ckrishk/spiritual_pages/blob/main/pitru_paksha/south.png?raw=true" alt="Shraddha rituals in South India" class="w-full h-48 md:w-32 md:h-32 object-cover rounded-lg flex-shrink-0">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2 text-amber-900">South India: Ancestral Offerings</h3>
+                        <p>
+                            In South India, the observance of Pitru Paksha is similar, with a strong focus on performing Shraddha and Tarpan rituals. Families often perform the rituals at home or by a river. Specific offerings and prayers vary, but the fundamental belief in honoring and seeking blessings from ancestors remains the same.
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -253,31 +293,41 @@
                         Beyond the rituals, it's a time for families to come together, share stories, and reinforce their bonds. The practice encourages respect for elders and highlights the cyclical nature of life, death, and remembrance.
                     </p>
                 </div>
-                <div class="flex justify-center items-center">
-                    <img src="https://placehold.co/400x400/D97706/FFFFFF?text=Modern+Relevance" alt="A symbolic image of a tree with deep roots" class="w-48 h-48 md:w-64 md:h-64 rounded-full border-4 border-amber-500 shadow-lg">
+                <div class="flex justify-center items-center relative w-full h-64 md:h-80 rounded-lg">
+                    <img src="https://github.com/ckrishk/spiritual_pages/blob/main/pitru_paksha/family-heritage.png?raw=true" alt="A symbolic image of a strong tree with deep, interconnected roots" class="w-full h-full object-cover rounded-lg shadow-lg">
                 </div>
             </div>
         </section>
 
         <section id="comparison" class="mb-24">
             <h2 class="text-3xl font-bold mb-6 text-center">Comparison with other Cultures</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-amber-800">
-                <div class="card p-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-amber-800">
+                <div class="card p-6 flex flex-col items-center text-center">
+                    <img src="https://github.com/ckrishk/spiritual_pages/blob/main/pitru_paksha/day-of-the-dead.png?raw=true" alt="An image of a colorful altar for Day of the Dead" class="w-48 h-32 mb-4 rounded-lg object-cover">
                     <h3 class="text-xl font-semibold mb-2 text-amber-900">Day of the Dead (Mexico)</h3>
                     <p>
                         This is a multi-day holiday where families pray for and remember friends and family members who have died. It is seen as a celebration of life and death, with colorful altars and festive gatherings.
                     </p>
                 </div>
-                <div class="card p-6">
+                <div class="card p-6 flex flex-col items-center text-center">
+                    <img src="https://github.com/ckrishk/spiritual_pages/blob/main/pitru_paksha/qingming-festival.png?raw=true" alt="An image of a family sweeping a tomb during Qingming Festival" class="w-48 h-32 mb-4 rounded-lg object-cover">
                     <h3 class="text-xl font-semibold mb-2 text-amber-900">Qingming Festival (China)</h3>
                     <p>
                         Also known as Tomb-Sweeping Day, this is a time for families to visit the graves of their ancestors to clean the tombs, pray to the deceased, and make ritual offerings.
                     </p>
                 </div>
-                <div class="card p-6">
+                <div class="card p-6 flex flex-col items-center text-center">
+                    <img src="https://github.com/ckrishk/spiritual_pages/blob/main/pitru_paksha/obon-festival.png?raw=true" alt="An image of floating lanterns during Obon Festival" class="w-48 h-32 mb-4 rounded-lg object-cover">
                     <h3 class="text-xl font-semibold mb-2 text-amber-900">Obon Festival (Japan)</h3>
                     <p>
                         This Buddhist festival honors the spirits of one's ancestors. Families return to their ancestral homes, clean graves, and make food offerings. The festival often concludes with floating lanterns.
+                    </p>
+                </div>
+                <div class="card p-6 flex flex-col items-center text-center">
+                    <img src="https://github.com/ckrishk/spiritual_pages/blob/main/pitru_paksha/halloween.png?raw=true" alt="An image of a festive Halloween celebration with carved pumpkins" class="w-48 h-32 mb-4 rounded-lg object-cover">
+                    <h3 class="text-xl font-semibold mb-2 text-amber-900">Halloween (Western Cultures)</h3>
+                    <p>
+                        Originating from the ancient Celtic festival of Samhain, Halloween marked the end of the harvest and was believed to be a time when the boundary between the living and the dead blurred. While modern celebrations are more secular, centered around costumes and treats, its roots are in honoring and warding off spirits.
                     </p>
                 </div>
             </div>
@@ -294,18 +344,20 @@
             const mobileMenu = document.getElementById('mobile-menu');
             const navLinks = document.querySelectorAll('.nav-link');
             const sections = document.querySelectorAll('section');
-            const tabButtons = document.querySelectorAll('.tab-btn');
-            const tabContents = document.querySelectorAll('#tab-content > div');
+            
+            // Legends Tab functionality
+            const legendTabButtons = document.querySelectorAll('#legends .tab-btn');
+            const legendTabContents = document.querySelectorAll('#tab-legends-content > div');
 
-            // Tab functionality
-            tabButtons.forEach(button => {
+            legendTabButtons.forEach(button => {
                 button.addEventListener('click', () => {
-                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    legendTabButtons.forEach(btn => btn.classList.remove('active'));
                     button.classList.add('active');
 
-                    tabContents.forEach(content => content.classList.add('hidden'));
+                    legendTabContents.forEach(content => content.classList.add('hidden'));
                     const targetId = button.id.replace('tab-', 'content-');
-                    document.getElementById(targetId).classList.remove('hidden');
+                    const targetContent = document.getElementById(targetId);
+                    targetContent.classList.remove('hidden');
                 });
             });
 
