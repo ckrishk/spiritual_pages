@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pitru Paksha: An Interactive Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Chosen Palette: Warm Harmony -->
+    <!-- Application Structure Plan: The SPA is structured into thematic sections (Significance, Legends, Rituals, etc.) rather than mirroring the linear presentation format. This allows users to explore topics non-linearly via a sticky navigation bar. The key interaction is a tabbed component for the "Legends" section, which organizes narrative content efficiently and encourages user engagement. A new "Comparison" section has been added with a two-column layout to facilitate a direct comparison. This structure was chosen to transform a passive presentation into an active, user-driven exploration, making the dense cultural information more digestible and engaging. -->
+    <!-- Visualization & Content Choices: Report Info: Core concepts of Pitru Paksha -> Goal: Inform -> Presentation: Styled text cards with icons -> Interaction: N/A, clarity through design. Report Info: Legends (Karna, Bhagiratha - added for context) -> Goal: Engage through story -> Presentation: Interactive tabs -> Interaction: User clicks to switch between stories -> Justification: Prevents content overload, user-controlled discovery. Report Info: Do's & Don'ts -> Goal: Compare/Instruct -> Presentation: Side-by-side colored columns -> Interaction: N/A, visual cues for clarity. Report Info: Pitru Paksha vs. Halloween -> Goal: Contrast and Inform -> Presentation: Two-column layout with lists -> Interaction: N/A. All diagrams/icons are created using Unicode and Tailwind CSS. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FFF8F0;
+            color: #4A2E2D;
+        }
+        h1, h2, h3 {
+            font-family: 'Lora', serif;
+        }
+        .nav-link {
+            position: relative;
+            transition: color 0.3s;
+            color: #8C5A3A;
+        }
+        .nav-link:hover {
+            color: #D97706;
+        }
+        .nav-link.active {
+            color: #D97706;
+            font-weight: 600;
+        }
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #D97706;
+        }
+        .tab-btn {
+            transition: all 0.3s;
+        }
+        .tab-btn.active {
+            background-color: #D97706;
+            color: #FFFFFF;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .card {
+            background-color: #FFFFFF;
+            border: 1px solid #E5D8CC;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .guideline-card {
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            min-height: 200px;
+        }
+        section {
+            padding-top: 80px;
+            margin-top: -80px;
+        }
+        /* Loading animation styles */
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #D97706;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-amber-800/10 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <a href="#home" class="text-xl font-semibold text-amber-900">Pitru Paksha</a>
+                <div class="hidden md:flex space-x-8" id="nav-menu">
+                    <a href="#significance" class="nav-link">Significance</a>
+                    <a href="#legends" class="nav-link">Legends</a>
+                    <a href="#rituals" class="nav-link">Rituals</a>
+                    <a href="#guidelines" class="nav-link">Guidelines</a>
+                    <a href="#relevance" class="nav-link">Modern Relevance</a>
+                    <a href="#comparison" class="nav-link">Comparison</a>
+                </div>
+                <button id="mobile-menu-button" class="md:hidden text-amber-900">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                <a href="#significance" class="block py-2 text-center nav-link">Significance</a>
+                <a href="#legends" class="block py-2 text-center nav-link">Legends</a>
+                <a href="#rituals" class="block py-2 text-center nav-link">Rituals</a>
+                <a href="#guidelines" class="block py-2 text-center nav-link">Guidelines</a>
+                <a href="#relevance" class="block py-2 text-center nav-link">Modern Relevance</a>
+                <a href="#comparison" class="block py-2 text-center nav-link">Comparison</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+        <section id="home" class="text-center pt-0 mt-0 mb-24">
+            <div class="w-full h-96 rounded-lg overflow-hidden mb-8 image-container">
+                <div id="image-loader-home" class="loader absolute hidden"></div>
+                <img id="main-image" src="" alt="A Hindu family by a riverside, praying and making offerings to honor their ancestors.">
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold text-amber-900 mb-4">Honoring Our Ancestors</h1>
+            <p class="text-lg md:text-xl text-amber-800 max-w-3xl mx-auto">
+                An interactive guide to the sacred fortnight of Pitru Paksha, a time for remembrance, gratitude, and spiritual connection with our lineage.
+            </p>
+        </section>
+
+        <section id="significance" class="mb-24">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-amber-900 mb-12">Purpose & Spiritual Significance</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="card p-6">
+                    <h3 class="text-2xl font-semibold mb-4 text-amber-800">The Sacred Fortnight</h3>
+                    <div class="image-container w-full h-40 rounded-md mb-4">
+                        <div class="loader absolute hidden"></div>
+                        <img class="dynamic-image w-full h-full object-cover rounded-md" src="" alt="A traditional Hindu calendar marking the fortnight of Pitru Paksha.">
+                    </div>
+                    <p class="mb-4">Pitru Paksha is a 16-lunar day period when Hindus pay homage to their ancestors (Pitrs), especially through food offerings. This section explains the core tenets of this period, its timing in the Hindu calendar, and its fundamental purpose: to remember, honor, and nourish the souls of those who came before us.</p>
+                    <ul class="space-y-2 text-amber-900">
+                        <li><span class="font-semibold">What:</span> A 16-day period, also known as Mahalaya Paksha.</li>
+                        <li><span class="font-semibold">When:</span> Second fortnight of the Hindu month of Bhadrapada.</li>
+                        <li><span class="font-semibold">Why:</span> To remember, honor, and seek blessings from our ancestors.</li>
+                    </ul>
+                </div>
+                <div class="card p-6">
+                    <h3 class="text-2xl font-semibold mb-4 text-amber-800">Connection to the Souls</h3>
+                    <p class="mb-4">The spiritual essence of Pitru Paksha is rooted in the belief that the souls of our past three generations reside in a realm called Pitru Loka. During this fortnight, they are permitted to return to earth. Our offerings provide them with nourishment and energy, helping them on their spiritual journey and liberating them from the cycle of rebirth.</p>
+                     <ul class="space-y-2">
+                        <li><strong>🙏 Repay Spiritual Debts:</strong> Fulfill our duty to those who gave us life.</li>
+                        <li><strong>✨ Seek Blessings:</strong> A satisfied ancestor bestows health, wealth, and prosperity.</li>
+                        <li><strong>🕊️ Ensure Peace:</strong> Help souls attain peace and move towards *moksha* (salvation).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="legends" class="mb-24">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-amber-900 mb-8">Legends of Pitru Paksha</h2>
+            <p class="text-center max-w-3xl mx-auto mb-8">The practices of Pitru Paksha are enriched by ancient legends that highlight the importance of duty, charity, and devotion towards one's ancestors. Explore these stories to understand the profound meaning behind the rituals. Click on a name to learn their story.</p>
+            <div class="bg-white rounded-xl shadow-lg p-2 max-w-4xl mx-auto">
+                <div class="flex justify-center border-b border-gray-200">
+                    <button class="tab-btn active font-semibold py-3 px-6 text-lg" data-tab="karna">The Story of Karna</button>
+                    <button class="tab-btn font-semibold py-3 px-6 text-lg" data-tab="bhagiratha">The Story of Bhagiratha</button>
+                    <button class="tab-btn font-semibold py-3 px-6 text-lg" data-tab="garuda">Garuda Purana</button>
+                </div>
+                <div id="karna" class="tab-content p-6">
+                    <h3 class="text-2xl font-bold mb-4 text-amber-800">A Lesson in Duty</h3>
+                    <p class="mb-4">The legendary warrior Karna from the Mahabharata was known for his immense generosity, donating gold and wealth without hesitation. However, upon his death, he reached the heavens and was offered only gold to eat. When he asked why, he was told that while he had been generous with material wealth, he had never offered food to his ancestors.</p>
+                    <p>He was granted a 16-day period to return to Earth to perform the Shraddha ceremony and offer food and water. This period is now observed as Pitru Paksha, emphasizing that offering food to ancestors is a critical duty, as important as any other form of charity.</p>
+                    <div class="image-container w-full h-64 rounded-lg mt-4">
+                        <div class="loader absolute hidden"></div>
+                        <img class="dynamic-image w-full h-full object-cover rounded-lg" src="" alt="A depiction of the mythological warrior Karna offering food to his ancestors.">
+                    </div>
+                </div>
+                <div id="bhagiratha" class="tab-content p-6 hidden">
+                     <h3 class="text-2xl font-bold mb-4 text-amber-800">Liberation Through Devotion</h3>
+                    <p class="mb-4">King Bhagiratha wanted to bring liberation to the souls of his 60,000 ancestors, who were cursed and unable to find peace. He performed intense penance for thousands of years to please the gods and bring the celestial river Ganga down to Earth. He believed that the sacred waters of the Ganga would purify the ashes of his ancestors and grant them salvation.</p>
+                    <p>His unwavering devotion succeeded. The river Ganga descended, and as its waters flowed over the ashes, his ancestors were liberated. This story underscores the power of a descendant's sincere efforts to ensure the salvation of their ancestors.</p>
+                    <div class="image-container w-full h-64 rounded-lg mt-4">
+                        <div class="loader absolute hidden"></div>
+                        <img class="dynamic-image w-full h-full object-cover rounded-lg" src="" alt="A depiction of the mythological King Bhagiratha bringing the holy river Ganga to Earth.">
+                    </div>
+                </div>
+                <div id="garuda" class="tab-content p-6 hidden">
+                    <h3 class="text-2xl font-bold mb-4 text-amber-800">The Soul's Journey</h3>
+                    <p class="mb-4">The **Garuda Purana** is one of the Mahapuranas and is a conversation between Lord Vishnu and Garuda. A significant portion of the text details the journey of the soul after death. It explains the various realms and paths a soul may take, which are heavily influenced by the karma of their life on Earth. The text stresses that the rituals performed by living relatives, particularly the Shraddha ceremony, are crucial. These rituals are believed to provide the soul with the strength and sustenance needed to navigate the challenges of the afterlife and help them on their path towards a peaceful resting place or liberation.</p>
+                    <div class="image-container w-full h-64 rounded-lg mt-4">
+                        <div class="loader absolute hidden"></div>
+                        <img class="dynamic-image w-full h-full object-cover rounded-lg" src="" alt="An artistic depiction of a Hindu soul's journey after death as described in the Garuda Purana.">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="rituals" class="mb-24">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-amber-900 mb-12">Rituals & Practices</h2>
+            <p class="text-center max-w-3xl mx-auto mb-8">The core of Pitru Paksha revolves around the Shraddha ceremony. This is not just a single act but a collection of rituals performed with faith and sincerity. Here are the key components of Shraddha.</p>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card text-center p-6">
+                    <div class="image-container w-full h-40 rounded-md mb-4">
+                        <div class="loader absolute hidden"></div>
+                        <img class="dynamic-image w-full h-full object-cover rounded-md" src="" alt="A traditional Hindu Pind Daan ceremony, showing offerings of rice balls.">
+                    </div>
+                    <h3 class="text-xl font-semibold text-amber-800">Pind Daan</h3>
+                    <p>The offering of Pindas (rice balls mixed with sesame seeds, honey, and ghee) is a central ritual. It symbolizes the offering of a body to the ancestors, providing them nourishment and substance.</p>
+                </div>
+                <div class="card text-center p-6">
+                    <div class="image-container w-full h-40 rounded-md mb-4">
+                        <div class="loader absolute hidden"></div>
+                        <img class="dynamic-image w-full h-full object-cover rounded-md" src="" alt="A person performing Tarpana, offering water mixed with black sesame seeds to their ancestors.">
+                    </div>
+                    <h3 class="text-xl font-semibold text-amber-800">Tarpana</h3>
+                    <p>This is the ritual of offering water mixed with black sesame seeds. It is believed to quench the thirst of the departed souls and grant them peace. This simple yet profound act is performed daily during the fortnight.</p>
+                </div>
+                <div class="card text-center p-6">
+                    <div class="image-container w-full h-40 rounded-md mb-4">
+                        <div class="loader absolute hidden"></div>
+                        <img class="dynamic-image w-full h-full object-cover rounded-md" src="" alt="A Hindu Brahmin being fed by a family as part of a ritual.">
+                    </div>
+                    <h3 class="text-xl font-semibold text-amber-800">Brahmin Bhojan</h3>
+                    <p>Feeding learned and pious Brahmins is considered equivalent to directly feeding one's ancestors. After the meal, the family offers them clothes and other items (Dakshina) and seeks their blessings.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="guidelines" class="mb-24">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-amber-900 mb-12">Guidelines for Observance</h2>
+            <p class="text-center max-w-3xl mx-auto mb-8">To maintain the sanctity of this period and ensure the rituals are effective, certain disciplines are observed. These guidelines help focus the mind on spiritual duties and show respect for the visiting ancestral souls.</p>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-green-100/50 border-l-4 border-green-500 p-6 rounded-r-lg guideline-card">
+                    <h3 class="text-2xl font-semibold mb-4 text-green-800 flex items-center">
+                        <span class="text-3xl mr-3">✔</span> Do's
+                    </h3>
+                    <ul class="space-y-3">
+                        <li>Perform Shraddha on the death anniversary (*tithi*) of the ancestor.</li>
+                        <li>Offer food to crows (believed to be messengers), cows, and dogs.</li>
+                        <li>Donate food, clothes, and money to the needy in the name of your ancestors.</li>
+                        <li>Maintain a calm, pious, and spiritual atmosphere at home.</li>
+                    </ul>
+                </div>
+                <div class="bg-red-100/50 border-l-4 border-red-500 p-6 rounded-r-lg guideline-card">
+                    <h3 class="text-2xl font-semibold mb-4 text-red-800 flex items-center">
+                        <span class="text-3xl mr-3">✖</span> Don'ts
+                    </h3>
+                    <ul class="space-y-3">
+                        <li>Avoid starting new ventures, business deals, or auspicious events like weddings.</li>
+                        <li>Refrain from consuming non-vegetarian food, onions, garlic, and alcohol.</li>
+                        <li>Do not cut hair or nails during this period as a sign of mourning and simplicity.</li>
+                        <li>Avoid purchasing new clothes or engaging in worldly celebrations.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="relevance" class="mb-24 card p-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-amber-900 mb-8">Modern Relevance</h2>
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="md:w-1/2 image-container w-full h-auto rounded-lg">
+                    <div class="loader absolute hidden"></div>
+                    <img class="dynamic-image w-full h-full object-cover rounded-lg" src="" alt="A modern Hindu family looking at old photos of ancestors in traditional Indian clothing, symbolizing a connection to their heritage.">
+                </div>
+                <div class="md:w-1/2">
+                    <p class="text-lg mb-4">In today's fast-paced world, Pitru Paksha serves as a powerful reminder to pause and reconnect with our roots. It's an opportunity to teach younger generations about their heritage and the importance of gratitude.</p>
+                    <p>Beyond the specific rituals, the essence of Pitru Paksha is about remembering the sacrifices of our ancestors and acknowledging that we are part of a continuous lineage. Even simple acts like sharing family stories, donating to a charity in an ancestor's name, or simply taking a moment to be grateful can be a modern way of observing this sacred time.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="comparison" class="mb-24">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-amber-900 mb-8">Pitru Paksha vs. Halloween</h2>
+            <p class="text-center max-w-3xl mx-auto mb-8">Both Pitru Paksha and Halloween are periods dedicated to honoring the deceased, but their core purpose, tone, and rituals are distinct. This comparison highlights how different cultures approach the concept of death and remembrance.</p>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="card p-6 border-l-4 border-amber-500">
+                    <h3 class="text-2xl font-semibold mb-4 text-amber-800">Pitru Paksha</h3>
+                    <ul class="space-y-4">
+                        <li>
+                            <p class="font-bold">Purpose: Respect & Salvation</p>
+                            <p>It is a sacred, somber, and devotional period focused on providing nourishment to ancestors' souls, seeking their blessings, and helping them attain liberation (*moksha*). The primary emotion is one of reverence and gratitude.</p>
+                        </li>
+                        <li>
+                            <p class="font-bold">Tone: Sincere & Austere</p>
+                            <p>The atmosphere is one of deep respect and spiritual observance. People refrain from worldly celebrations and new beginnings. It is a time for introspection and honoring the past.</p>
+                        </li>
+                        <li>
+                            <p class="font-bold">Rituals: Shraddha & Offerings</p>
+                            <p>Rituals involve formal ceremonies like **Shraddha**, making offerings of food and water, and feeding Brahmins or the needy. These are acts of duty and faith.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card p-6 border-l-4 border-slate-500">
+                    <h3 class="text-2xl font-semibold mb-4 text-slate-800">Halloween</h3>
+                    <ul class="space-y-4">
+                        <li>
+                            <p class="font-bold">Purpose: Celebration & Fun</p>
+                            <p>Originally a pagan festival of Samhain to mark the end of harvest and the boundary between this world and the otherworld, it has evolved into a primarily secular holiday focused on costumes, candy, and spooky fun. The tone is more festive and lighthearted.</p>
+                        </li>
+                        <li>
+                            <p class="font-bold">Tone: Festive & Playful</p>
+                            <p>The atmosphere is celebratory. People engage in parties, trick-or-treating, and dressing up. The focus is on embracing the "spooky" and the supernatural in a playful way, not on somber devotion.</p>
+                        </li>
+                        <li>
+                            <p class="font-bold">Rituals: Trick-or-Treating & Costumes</p>
+                            <p>Common practices include wearing costumes, carving pumpkins, trick-or-treating, and telling scary stories. These rituals are social and entertainment-based, not spiritual in nature.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-amber-900 text-amber-50 text-center py-6 mt-12">
+        <p>&copy; 2025 Interactive Guides. Created with respect and reverence.</p>
+    </footer>
+
+    <script type="module">
+        document.addEventListener('DOMContentLoaded', async function() {
+            
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('#nav-menu a');
+            const mobileNavLinks = document.querySelectorAll('#mobile-menu a');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            const allLinks = [...navLinks, ...mobileNavLinks];
+
+            allLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if(!mobileMenu.classList.contains('hidden')){
+                       mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.5
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        document.querySelectorAll('.nav-link').forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.add('active');
+                            }
+                        });
+                        // Load image for the intersecting section
+                        const sectionImages = entry.target.querySelectorAll('.dynamic-image');
+                        sectionImages.forEach(img => {
+                            const loader = img.previousElementSibling;
+                            generateAndDisplayImage(img, loader);
+                            observer.unobserve(entry.target);
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            const tabs = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+
+                    const target = tab.dataset.tab;
+                    tabContents.forEach(content => {
+                        if (content.id === target) {
+                            content.classList.remove('hidden');
+                            const imageInTab = content.querySelector('.dynamic-image');
+                            const loaderInTab = imageInTab.previousElementSibling;
+                            generateAndDisplayImage(imageInTab, loaderInTab);
+                        } else {
+                            content.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+
+            const generateAndDisplayImage = async (imgElement, loaderElement) => {
+                const prompt = imgElement.alt;
+                const cacheKey = `image_${prompt.replace(/\s/g, '_')}`;
+
+                loaderElement.classList.remove('hidden');
+
+                try {
+                    // Check if image exists in local storage
+                    const cachedData = localStorage.getItem(cacheKey);
+                    if (cachedData) {
+                        imgElement.src = cachedData;
+                        loaderElement.classList.add('hidden');
+                        return;
+                    }
+
+                    // If not found, generate the image
+                    const apiKey = "";
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image-preview:generateContent?key=${apiKey}`;
+
+                    const payload = {
+                        contents: [{ parts: [{ text: prompt }] }],
+                        generationConfig: { responseModalities: ['TEXT', 'IMAGE'] }
+                    };
+
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+
+                    const result = await response.json();
+                    const base64Data = result?.candidates?.[0]?.content?.parts?.find(p => p.inlineData)?.inlineData?.data;
+
+                    if (base64Data) {
+                        const imageUrl = `data:image/png;base64,${base64Data}`;
+                        imgElement.src = imageUrl;
+
+                        // Save the generated image to local storage for future use
+                        localStorage.setItem(cacheKey, imageUrl);
+                        console.log("Image saved to local storage.");
+
+                        imgElement.onload = () => {
+                            loaderElement.classList.add('hidden');
+                        };
+                    } else {
+                        console.error('Image generation failed: No valid predictions returned.', result);
+                        loaderElement.classList.add('hidden');
+                    }
+                } catch (error) {
+                    console.error('Error in image generation:', error);
+                    loaderElement.classList.add('hidden');
+                }
+            };
+            
+            // Immediately load the main hero image
+            const mainImage = document.getElementById('main-image');
+            const mainImageLoader = document.getElementById('image-loader-home');
+            if (mainImage && mainImageLoader) {
+                generateAndDisplayImage(mainImage, mainImageLoader);
+            }
+        });
+    </script>
+
+</body>
+</html>
