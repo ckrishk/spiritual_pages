@@ -61,18 +61,6 @@
         thead {
             background-color: #ECFDF5; /* A very light green */
         }
-        .loading-spinner {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #1e40af;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
         /* Style for the Naivedyam image cards */
         .naivedyam-card {
             border-radius: 0.75rem;
@@ -110,9 +98,6 @@
         .expanding-card.expanded .toggle-icon {
             transform: rotate(180deg);
         }
-        .story-icon-image-container img {
-            object-fit: contain; /* Fixes cropping issue for icons */
-        }
     </style>
 </head>
 <body class="p-4 md:p-8">
@@ -134,10 +119,10 @@
                 <h3 class="text-2xl font-bold mb-4 text-center">When is Dussehra Celebrated?</h3>
                 <div class="card p-6 text-cyan-800">
                     <p class="text-lg mb-4">
-                        Dussehra, also known as Vijaya Dashami, is celebrated on the **tenth day** of the bright half of the Hindu calendar month. This is the month of **Ashvin** (also called Ashvayuja or Purattasi in some regions).
+                        Dussehra, also known as Vijaya Dashami, is celebrated on the <b>tenth day</b> of the bright half of the Hindu calendar month. This is the month of <b>Ashvin</b> (also called Ashvayuja or Purattasi in some regions).
                     </p>
                     <p class="text-lg mb-4">
-                        This day marks the end of the nine-night festival of **Navaratri**, and it usually falls in the month of September or October. It is a festival of victory that follows a period of worship and fasting.
+                        This day marks the end of the nine-night festival of <b>Navaratri</b>, and it usually falls in the month of September or October. It is a festival of victory that follows a period of worship and fasting.
                     </p>
                 </div>
             </section>
@@ -147,11 +132,8 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     <!-- North India Section -->
                     <div class="card">
-                        <div id="north-india-container" class="relative w-full h-48 flex justify-center items-center">
-                            <img id="north-india-image" src="https://placehold.co/300x200/00BCD4/FFFFFF?text=North+India" alt="Burning of Ravana effigy in North India" class="w-full h-48 object-cover">
-                            <div id="loading-spinner-north" class="absolute hidden">
-                                <div class="loading-spinner"></div>
-                            </div>
+                        <div class="relative w-full h-48">
+                            <img id="north-india-image" src="https://github.com/ckrishk/spiritual_pages/blob/main/dusherra/resources/dus_north.png" alt="Burning of Ravana effigy in North India" class="w-full h-48 object-cover">
                         </div>
                         <div class="p-6">
                             <h4 class="text-xl font-semibold mb-2 text-cyan-900">North India</h4>
@@ -160,11 +142,8 @@
                     </div>
                     <!-- East India Section -->
                     <div class="card">
-                        <div id="east-india-container" class="relative w-full h-48 flex justify-center items-center">
-                            <img id="east-india-image" src="https://placehold.co/300x200/0097A7/FFFFFF?text=East+India" alt="Sindoor Khela during Durga Puja in East India" class="w-full h-48 object-cover">
-                            <div id="loading-spinner-east" class="absolute hidden">
-                                <div class="loading-spinner"></div>
-                            </div>
+                        <div class="relative w-full h-48">
+                            <img id="east-india-image" src="https://github.com/ckrishk/spiritual_pages/blob/main/dusherra/resources/dus_east.png" alt="Sindoor Khela during Durga Puja in East India" class="w-full h-48 object-cover">
                         </div>
                         <div class="p-6">
                             <h4 class="text-xl font-semibold mb-2 text-cyan-900">East India</h4>
@@ -173,11 +152,8 @@
                     </div>
                     <!-- South India Section -->
                     <div class="card">
-                        <div id="south-india-container" class="relative w-full h-48 flex justify-center items-center">
-                            <img id="south-india-image" src="https://placehold.co/300x200/00ACC1/064E3B?text=South+India" alt="Mysore Dasara elephant procession in South India" class="w-full h-48 object-cover">
-                            <div id="loading-spinner-south" class="absolute hidden">
-                                <div class="loading-spinner"></div>
-                            </div>
+                        <div class="relative w-full h-48">
+                            <img id="south-india-image" src="https://github.com/ckrishk/spiritual_pages/blob/main/dusherra/resources/dus_south.png" alt="Mysore Dasara elephant procession in South India" class="w-full h-48 object-cover">
                         </div>
                         <div class="p-6">
                             <h4 class="text-xl font-semibold mb-2 text-cyan-900">South India</h4>
@@ -186,15 +162,12 @@
                     </div>
                     <!-- West India Section -->
                     <div class="card">
-                        <div id="west-india-container" class="relative w-full h-48 flex justify-center items-center">
-                            <img id="west-india-image" src="https://placehold.co/300x200/4DD0E1/064E3B?text=West+India" alt="Garba and Dandiya Raas dance in West India" class="w-full h-48 object-cover">
-                            <div id="loading-spinner-west" class="absolute hidden">
-                                <div class="loading-spinner"></div>
-                            </div>
+                        <div class="relative w-full h-48">
+                            <img id="west-india-image" src="https://github.com/ckrishk/spiritual_pages/blob/main/dusherra/resources/dus_west.png" alt="Garba and Dandiya Raas dance in West India" class="w-full h-48 object-cover">
                         </div>
                         <div class="p-6">
                             <h4 class="text-xl font-semibold mb-2 text-cyan-900">West India</h4>
-                            <p class="text-cyan-800">The festival culminates in nine nights of vibrant **Garba** and **Dandiya Raas** dances. Garba is a traditional circular folk dance performed around a pot representing the Goddess, while Dandiya Raas is a lively performance with sticks, performed as a celebration of devotion and victory.</p>
+                            <p class="text-cyan-800">The festival culminates in nine nights of vibrant <b>Garba</b> and <b>Dandiya Raas</b> dances. Garba is a traditional circular folk dance performed around a pot representing the Goddess, while Dandiya Raas is a lively performance with sticks, performed as a celebration of devotion and victory.</p>
                         </div>
                     </div>
                 </div>
@@ -233,10 +206,10 @@
                     <h4 class="text-xl font-semibold mb-4 text-cyan-900">North Indian Tradition</h4>
                     <div class="space-y-4">
                         <p class="text-cyan-800">
-                            During Sharad Navaratri in North India, many people observe fasts, consuming only **phalahar**, a diet of fruits, milk, and dry fruits. The offerings to the goddess are typically **satvik** (pure) foods such as kheer, halwa, poori, and **kala chana** (black chickpeas).
+                            During Sharad Navaratri in North India, many people observe fasts, consuming only <b>phalahar</b>, a diet of fruits, milk, and dry fruits. The offerings to the goddess are typically <b>satvik</b> (pure) foods such as kheer, halwa, poori, and <b>kala chana</b> (black chickpeas).
                         </p>
                         <p class="text-cyan-800">
-                            A significant ritual, especially on the eighth (**Ashtami**) or ninth (**Navami**) day, is **Kanya Puja**. Young girls are honored as manifestations of the Goddess and are offered a special meal of **poori, sooji halwa, and kala chana** as part of the ritual. While daily lentil offerings are not as prevalent as in South India, legumes like **kala chana** hold a special place in the rituals.
+                            A significant ritual, especially on the eighth (<b>Ashtami</b>) or ninth (<b>Navami</b>) day, is <b>Kanya Puja</b>. Young girls are honored as manifestations of the Goddess and are offered a special meal of <b>poori, sooji halwa, and kala chana</b> as part of the ritual. While daily lentil offerings are not as prevalent as in South India, legumes like <b>kala chana</b> hold a special place in the rituals.
                         </p>
                     </div>
                 </div>
@@ -248,29 +221,20 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div class="naivedyam-card p-4">
                         <h4 class="text-lg font-semibold mb-2 text-cyan-900">Kala Chana</h4>
-                        <div id="kala-chana-container" class="relative w-full h-48 flex justify-center items-center">
-                            <img id="kala-chana-image" src="https://placehold.co/300x200/064E3B/A7F3D0?text=Kala+Chana" alt="Kala Chana offering" class="w-full h-full object-cover rounded-md">
-                            <div id="loading-spinner-kala-chana" class="absolute hidden">
-                                <div class="loading-spinner"></div>
-                            </div>
+                        <div class="relative w-full h-48">
+                            <img id="kala-chana-image" src="https://github.com/ckrishk/spiritual_pages/blob/main/dusherra/resources/off_1.png" alt="Kala Chana offering" class="w-full h-full object-cover rounded-md">
                         </div>
                     </div>
                     <div class="naivedyam-card p-4">
                         <h4 class="text-lg font-semibold mb-2 text-cyan-900">Sweet Pongal</h4>
-                        <div id="sweet-pongal-container" class="relative w-full h-48 flex justify-center items-center">
-                            <img id="sweet-pongal-image" src="https://placehold.co/300x200/064E3B/A7F3D0?text=Sweet+Pongal" alt="Sweet Pongal offering" class="w-full h-full object-cover rounded-md">
-                            <div id="loading-spinner-sweet-pongal" class="absolute hidden">
-                                <div class="loading-spinner"></div>
-                            </div>
+                        <div class="relative w-full h-48">
+                            <img id="sweet-pongal-image" src="https://github.com/ckrishk/spiritual_pages/blob/main/dusherra/resources/off_2.png" alt="Sweet Pongal offering" class="w-full h-full object-cover rounded-md">
                         </div>
                     </div>
                     <div class="naivedyam-card p-4">
                         <h4 class="text-lg font-semibold mb-2 text-cyan-900">Coconut Barfi</h4>
-                        <div id="coconut-barfi-container" class="relative w-full h-48 flex justify-center items-center">
-                            <img id="coconut-barfi-image" src="https://placehold.co/300x200/064E3B/A7F3D0?text=Coconut+Barfi" alt="Coconut Barfi offering" class="w-full h-full object-cover rounded-md">
-                            <div id="loading-spinner-coconut-barfi" class="absolute hidden">
-                                <div class="loading-spinner"></div>
-                            </div>
+                        <div class="relative w-full h-48">
+                            <img id="coconut-barfi-image" src="https://github.com/ckrishk/spiritual_pages/blob/main/dusherra/resources/off_3.png" alt="Coconut Barfi offering" class="w-full h-full object-cover rounded-md">
                         </div>
                     </div>
                 </div>
@@ -284,11 +248,8 @@
             <!-- Story: Lord Rama over Ravana -->
             <section class="story-card mb-12 flex flex-col md:flex-row items-center">
                 <div class="md:w-1/3 p-6 text-center">
-                    <div class="story-icon-image-container relative w-full h-32 flex justify-center items-center">
-                        <img id="rama-icon-image" src="https://placehold.co/128x128/00BCD4/FFFFFF?text=Loading" alt="Lord Rama icon" class="w-32 h-32 object-contain hidden">
-                        <div id="loading-spinner-rama-icon" class="absolute hidden">
-                            <div class="loading-spinner"></div>
-                        </div>
+                    <div class="relative w-full h-32">
+                        <img id="rama-icon-image" src="https://github.com/ckrishk/spiritual_pages/blob/main/dusherra/resources/dus_rama.png" alt="Lord Rama icon" class="w-32 h-32 object-contain mx-auto">
                     </div>
                     <h3 class="text-2xl font-bold mt-4 text-cyan-800">Lord Rama's Victory</h3>
                 </div>
@@ -303,11 +264,8 @@
             <!-- Story: Goddess Durga over Mahishasura -->
             <section class="story-card mb-12 flex flex-col md:flex-row items-center">
                 <div class="md:w-1/3 p-6 text-center">
-                    <div class="story-icon-image-container relative w-full h-32 flex justify-center items-center">
-                        <img id="durga-icon-image" src="https://placehold.co/128x128/0097A7/FFFFFF?text=Loading" alt="Goddess Durga icon" class="w-32 h-32 object-contain hidden">
-                        <div id="loading-spinner-durga-icon" class="absolute hidden">
-                            <div class="loading-spinner"></div>
-                        </div>
+                    <div class="relative w-full h-32">
+                        <img id="durga-icon-image" src="https://github.com/ckrishk/spiritual_pages/blob/main/dusherra/resources/dus_durga.png" alt="Goddess Durga icon" class="w-32 h-32 object-contain mx-auto">
                     </div>
                     <h3 class="text-2xl font-bold mt-4 text-cyan-800">Goddess Durga's Triumph</h3>
                 </div>
@@ -323,11 +281,8 @@
             <section class="story-card mb-12 expanding-card">
                 <div class="card-header">
                     <div class="flex items-center space-x-4">
-                        <div class="story-icon-image-container relative w-full h-32 flex justify-center items-center">
-                             <img id="kali-icon-image" src="https://placehold.co/128x128/000/FFF?text=Loading" alt="Goddess Kali icon" class="w-32 h-32 object-contain hidden">
-                            <div id="loading-spinner-kali-icon" class="absolute hidden">
-                                <div class="loading-spinner"></div>
-                            </div>
+                        <div class="relative w-32 h-32 flex justify-center items-center">
+                             <img id="kali-icon-image" src="https://github.com/ckrishk/spiritual_pages/blob/main/dusherra/resources/dus_kali.png" alt="Goddess Kali icon" class="w-32 h-32 object-contain">
                         </div>
                         <h3 class="text-2xl font-bold text-cyan-800">The Story of Chanda & Munda</h3>
                     </div>
@@ -338,27 +293,24 @@
                 <div class="story-content">
                     <div class="mb-6">
                         <h4 class="text-xl font-semibold mb-2 text-cyan-900">The Story</h4>
-                        <div id="kali-story-image-container" class="relative w-full h-48 flex justify-center items-center mb-4">
-                            <img id="kali-story-image" src="https://placehold.co/300x200/000/FFF?text=Loading" alt="Goddess Kali beheading demons" class="w-full h-48 object-cover rounded-lg hidden">
-                            <div id="loading-spinner-kali-story" class="absolute hidden">
-                                <div class="loading-spinner"></div>
-                            </div>
+                        <div class="relative w-full h-48 flex justify-center items-center mb-4">
+                            <img id="kali-story-image" src="https://github.com/ckrishk/spiritual_pages/blob/main/dusherra/resources/dus_Kali_1.png" alt="Goddess Kali beheading demons" class="w-full h-48 object-cover rounded-lg">
                         </div>
                         <p class="text-lg text-cyan-800 mb-2">
-                            While the Devas (gods) were fleeing from the demon kings Shumbha and Nishumbha, they prayed to Goddess Durga. An incarnation of Durga, **Goddess Ambika**, emerged from the body of Parvati. Chanda and Munda, commanders of the demon army, saw Ambika and were overwhelmed by her beauty. They reported her radiance and grace to Shumbha, suggesting he should claim this "jewel among women."
+                            While the Devas (gods) were fleeing from the demon kings Shumbha and Nishumbha, they prayed to Goddess Durga. An incarnation of Durga, <b>Goddess Ambika</b>, emerged from the body of Parvati. Chanda and Munda, commanders of the demon army, saw Ambika and were overwhelmed by her beauty. They reported her radiance and grace to Shumbha, suggesting he should claim this "jewel among women."
                         </p>
                         <p class="text-lg text-cyan-800 mb-2">
-                            Shumbha, driven by his ego, sent a messenger to demand that Durga become his wife. The goddess refused, stating she would only marry someone who could conquer her in battle. Angered, Shumbha sent his commanders, **Chanda and Munda**, to capture the goddess by force.
+                            Shumbha, driven by his ego, sent a messenger to demand that Durga become his wife. The goddess refused, stating she would only marry someone who could conquer her in battle. Angered, Shumbha sent his commanders, <b>Chanda and Munda</b>, to capture the goddess by force.
                         </p>
                         <p class="text-lg text-cyan-800 mb-4">
-                            As the battle intensified, Chanda and Munda underestimated the goddess's power. But when she was confronted by them, she transformed into the fierce goddess **Kali**. With swift and decisive action, Kali beheaded both demons, earning her the name **Chamunda**.
+                            As the battle intensified, Chanda and Munda underestimated the goddess's power. But when she was confronted by them, she transformed into the fierce goddess <b>Kali</b>. With swift and decisive action, Kali beheaded both demons, earning her the name <b>Chamunda</b>.
                         </p>
                     </div>
                     <div>
                         <h4 class="text-xl font-semibold mb-2 text-cyan-900">Symbolic Meaning</h4>
                         <ul class="list-disc list-inside space-y-2 text-cyan-800">
-                            <li>**Chanda and Munda:** They represent blindness, flawed perception, and a lack of reasoning or understanding—a state of mind "without the head."</li>
-                            <li>**Defeat of Ignorance:** Their defeat signifies how divine wisdom and truth triumph over negative qualities like **arrogance, ego, and ignorance**.</li>
+                            <li><b>Chanda and Munda:</b> They represent blindness, flawed perception, and a lack of reasoning or understanding—a state of mind "without the head."</li>
+                            <li><b>Defeat of Ignorance:</b> Their defeat signifies how divine wisdom and truth triumph over negative qualities like <b>arrogance, ego, and ignorance</b>.</li>
                         </ul>
                     </div>
                 </div>
@@ -368,11 +320,8 @@
             <section class="story-card mb-12 expanding-card">
                 <div class="card-header">
                     <div class="flex items-center space-x-4">
-                        <div class="story-icon-image-container relative w-full h-32 flex justify-center items-center">
-                            <img id="rakta-icon-image" src="https://placehold.co/128x128/000/FFF?text=Loading" alt="Raktabija icon" class="w-32 h-32 object-contain hidden">
-                            <div id="loading-spinner-rakta-icon" class="absolute hidden">
-                                <div class="loading-spinner"></div>
-                            </div>
+                        <div class="relative w-32 h-32 flex justify-center items-center">
+                            <img id="rakta-icon-image" src="https://github.com/ckrishk/spiritual_pages/blob/main/dusherra/resources/saptra_matrikas.png" alt="Raktabija icon" class="w-32 h-32 object-contain">
                         </div>
                         <h3 class="text-2xl font-bold text-cyan-800">The Demon of Replication: Raktabija</h3>
                     </div>
@@ -383,23 +332,20 @@
                 <div class="story-content">
                     <div class="mb-6">
                         <h4 class="text-xl font-semibold mb-2 text-cyan-900">The Story</h4>
-                        <div id="rakta-story-image-container" class="relative w-full h-48 flex justify-center items-center mb-4">
-                            <img id="rakta-story-image" src="https://placehold.co/300x200/000/FFF?text=Loading" alt="Goddesses fighting Raktabija" class="w-full h-48 object-cover rounded-lg hidden">
-                            <div id="loading-spinner-rakta-story" class="absolute hidden">
-                                <div class="loading-spinner"></div>
-                            </div>
+                        <div class="relative w-full h-48 flex justify-center items-center mb-4">
+                            <img id="rakta-story-image" src="https://github.com/ckrishk/spiritual_pages/blob/main/dusherra/resources/dus_sm_details.png" alt="Goddesses fighting Raktabija" class="w-full h-48 object-cover rounded-lg">
                         </div>
                         <p class="text-lg text-cyan-800 mb-2">
-                            After the defeat of Chanda and Munda, Shumbha and Nishumbha sent another fearsome commander, **Raktabija**. This demon had a unique and powerful boon: every single drop of his blood that fell to the ground would instantly give rise to another Raktabija, identical in form and strength.
+                            After the defeat of Chanda and Munda, Shumbha and Nishumbha sent another fearsome commander, <b>Raktabija</b>. This demon had a unique and powerful boon: every single drop of his blood that fell to the ground would instantly give rise to another Raktabija, identical in form and strength.
                         </p>
                         <p class="text-lg text-cyan-800 mb-4">
-                            Durga's army and the seven divine mothers (**Saptamatrikas**) fought valiantly. They attacked Raktabija with their weapons, but as soon as his blood touched the earth, countless new demons emerged. The battlefield was quickly filled with an army of Raktabijas, overwhelming the goddesses. It seemed impossible to defeat him without the entire universe being overrun by his clones.
+                            Durga's army and the seven divine mothers (<b>Saptamatrikas</b>) fought valiantly. They attacked Raktabija with their weapons, but as soon as his blood touched the earth, countless new demons emerged. The battlefield was quickly filled with an army of Raktabijas, overwhelming the goddesses. It seemed impossible to defeat him without the entire universe being overrun by his clones.
                         </p>
                     </div>
                     <div>
                         <h4 class="text-xl font-semibold mb-2 text-cyan-900">Symbolic Meaning</h4>
                         <ul class="list-disc list-inside space-y-2 text-cyan-800">
-                            <li>**Raktabija:** He represents the **self-replicating nature of desires and negative qualities** such as greed, jealousy, and anger. When we try to suppress them with force (like a weapon), they often multiply and become stronger.</li>
+                            <li><b>Raktabija:</b> He represents the <b>self-replicating nature of desires and negative qualities</b> such as greed, jealousy, and anger. When we try to suppress them with force (like a weapon), they often multiply and become stronger.</li>
                         </ul>
                     </div>
                 </div>
@@ -409,11 +355,8 @@
             <section class="story-card mb-12 expanding-card">
                 <div class="card-header">
                     <div class="flex items-center space-x-4">
-                        <div class="story-icon-image-container relative w-full h-32 flex justify-center items-center">
-                            <img id="rakta-slay-icon-image" src="https://placehold.co/128x128/000/FFF?text=Loading" alt="Raktabija slaying icon" class="w-32 h-32 object-contain hidden">
-                            <div id="loading-spinner-rakta-slay-icon" class="absolute hidden">
-                                <div class="loading-spinner"></div>
-                            </div>
+                        <div class="relative w-32 h-32 flex justify-center items-center">
+                            <img id="rakta-slay-icon-image" src="https://placehold.co/128x128/000/FFF?text=Slaying+Raktabija" alt="Raktabija slaying icon" class="w-32 h-32 object-contain">
                         </div>
                         <h3 class="text-2xl font-bold text-cyan-800">The Slaying of Raktabija</h3>
                     </div>
@@ -424,14 +367,11 @@
                 <div class="story-content">
                     <div class="mb-6">
                         <h4 class="text-xl font-semibold mb-2 text-cyan-900">The Story</h4>
-                        <div id="rakta-slay-story-image-container" class="relative w-full h-48 flex justify-center items-center mb-4">
-                            <img id="rakta-slay-story-image" src="https://placehold.co/300x200/000/FFF?text=Loading" alt="Kali drinking blood of Raktabija" class="w-full h-48 object-cover rounded-lg hidden">
-                            <div id="loading-spinner-rakta-slay-story" class="absolute hidden">
-                                <div class="loading-spinner"></div>
-                            </div>
+                        <div class="relative w-full h-48 flex justify-center items-center mb-4">
+                            <img id="rakta-slay-story-image" src="https://placehold.co/300x200/000/FFF?text=Kali+Drinks+Blood" alt="Kali drinking blood of Raktabija" class="w-full h-48 object-cover rounded-lg">
                         </div>
                         <p class="text-lg text-cyan-800 mb-4">
-                            Seeing that conventional methods were failing, Goddess Durga called upon her ferocious form, **Goddess Kali**, to enter the battle. Durga and the Saptamatrikas would strike Raktabija, but before any of his blood could hit the ground, Kali would swiftly and completely **drink it**.
+                            Seeing that conventional methods were failing, Goddess Durga called upon her ferocious form, <b>Goddess Kali</b>, to enter the battle. Durga and the Saptamatrikas would strike Raktabija, but before any of his blood could hit the ground, Kali would swiftly and completely <b>drink it</b>.
                         </p>
                         <p class="text-lg text-cyan-800 mb-4">
                             With this strategy, the demon’s blood never reached the earth, and no new clones were created. Finally, Raktabija was defeated, and the goddesses could proceed to face the final, most powerful demons.
@@ -440,21 +380,18 @@
                     <div>
                         <h4 class="text-xl font-semibold mb-2 text-cyan-900">Symbolic Meaning</h4>
                         <ul class="list-disc list-inside space-y-2 text-cyan-800">
-                            <li>**The Solution:** This story teaches that to defeat a deeply rooted problem or negative habit, we must address the source. Instead of simply fighting the external symptoms, we must contain and eliminate the root cause.</li>
+                            <li><b>The Solution:</b> This story teaches that to defeat a deeply rooted problem or negative habit, we must address the source. Instead of simply fighting the external symptoms, we must contain and eliminate the root cause.</li>
                         </ul>
                     </div>
                 </div>
             </section>
-            
+
             <!-- Story: Sapta Matrikas -->
             <section class="story-card mb-12 expanding-card">
                 <div class="card-header">
                     <div class="flex items-center space-x-4">
-                        <div class="story-icon-image-container relative w-full h-32 flex justify-center items-center">
-                            <img id="sapta-matrika-icon-image" src="https://placehold.co/128x128/000/FFF?text=Loading" alt="Sapta Matrikas icon" class="w-32 h-32 object-contain hidden">
-                            <div id="loading-spinner-sapta-matrika-icon" class="absolute hidden">
-                                <div class="loading-spinner"></div>
-                            </div>
+                        <div class="relative w-32 h-32 flex justify-center items-center">
+                            <img id="sapta-matrika-icon-image" src="https://placehold.co/128x128/000/FFF?text=Sapta+Matrikas" alt="Sapta Matrikas icon" class="w-32 h-32 object-contain">
                         </div>
                         <h3 class="text-2xl font-bold text-cyan-800">The Seven Divine Mothers: Sapta Matrikas</h3>
                     </div>
@@ -465,29 +402,26 @@
                 <div class="story-content">
                     <div class="mb-6">
                         <h4 class="text-xl font-semibold mb-2 text-cyan-900">Who Are They?</h4>
-                        <div id="sapta-matrika-story-image-container" class="relative w-full h-48 flex justify-center items-center mb-4">
-                            <img id="sapta-matrika-story-image" src="https://placehold.co/300x200/000/FFF?text=Loading" alt="Seven Divine Mothers fighting alongside Durga" class="w-full h-48 object-cover rounded-lg hidden">
-                            <div id="loading-spinner-sapta-matrika-story" class="absolute hidden">
-                                <div class="loading-spinner"></div>
-                            </div>
+                        <div class="relative w-full h-48 flex justify-center items-center mb-4">
+                            <img id="sapta-matrika-story-image" src="https://placehold.co/300x200/000/FFF?text=Sapta+Matrikas+Fighting" alt="Seven Divine Mothers fighting alongside Durga" class="w-full h-48 object-cover rounded-lg">
                         </div>
                         <p class="text-lg text-cyan-800 mb-2">
-                            The **Sapta Matrikas** are a group of seven powerful Hindu goddesses, each a manifestation of the feminine energy (Shakti) of a major male deity. They emerged from the bodies of the gods to aid the supreme goddess Durga in her battle against the demon Raktabija.
+                            The <b>Sapta Matrikas</b> are a group of seven powerful Hindu goddesses, each a manifestation of the feminine energy (Shakti) of a major male deity. They emerged from the bodies of the gods to aid the supreme goddess Durga in her battle against the demon Raktabija.
                         </p>
                         <ul class="list-disc list-inside space-y-2 text-cyan-800 mb-4">
-                            <li>**Brahmani:** The power of Brahma, associated with knowledge and creation.</li>
-                            <li>**Maheshvari:** The power of Shiva, associated with protection and destruction.</li>
-                            <li>**Kaumari:** The power of Skanda (Kartikeya), associated with war and victory.</li>
-                            <li>**Vaishnavi:** The power of Vishnu, associated with preservation and cosmic order.</li>
-                            <li>**Varahi:** The power of Varaha (Vishnu's boar incarnation), associated with removing obstacles.</li>
-                            <li>**Indrani:** The power of Indra, associated with courage and sovereignty.</li>
-                            <li>**Chamunda:** A fierce manifestation of the Devi, associated with the slaying of demons.</li>
+                            <li><b>Brahmani:</b> The power of Brahma, associated with knowledge and creation.</li>
+                            <li><b>Maheshvari:</b> The power of Shiva, associated with protection and destruction.</li>
+                            <li><b>Kaumari:</b> The power of Skanda (Kartikeya), associated with war and victory.</li>
+                            <li><b>Vaishnavi:</b> The power of Vishnu, associated with preservation and cosmic order.</li>
+                            <li><b>Varahi:</b> The power of Varaha (Vishnu's boar incarnation), associated with removing obstacles.</li>
+                            <li><b>Indrani:</b> The power of Indra, associated with courage and sovereignty.</li>
+                            <li><b>Chamunda:</b> A fierce manifestation of the Devi, associated with the slaying of demons.</li>
                         </ul>
                     </div>
                     <div>
                         <h4 class="text-xl font-semibold mb-2 text-cyan-900">Symbolic Meaning</h4>
                         <ul class="list-disc list-inside space-y-2 text-cyan-800">
-                            <li>**The Collective Power:** The Sapta Matrikas symbolize the truth that the one divine power, Shakti, can manifest in many different forms to defeat evil. The **seven goddesses joining forces** to fight Raktabija represents that all aspects of divine energy must work together to overcome complex challenges.</li>
+                            <li><b>The Collective Power:</b> The Sapta Matrikas symbolize the truth that the one divine power, Shakti, can manifest in many different forms to defeat evil. The <b>seven goddesses joining forces</b> to fight Raktabija represents that all aspects of divine energy must work together to overcome complex challenges.</li>
                         </ul>
                     </div>
                 </div>
@@ -497,11 +431,8 @@
             <section class="story-card mb-12 expanding-card">
                 <div class="card-header">
                     <div class="flex items-center space-x-4">
-                        <div class="story-icon-image-container relative w-full h-32 flex justify-center items-center">
-                            <img id="shumbha-icon-image" src="https://placehold.co/128x128/000/FFF?text=Loading" alt="Shumbha Nishumbha icon" class="w-32 h-32 object-contain hidden">
-                            <div id="loading-spinner-shumbha-icon" class="absolute hidden">
-                                <div class="loading-spinner"></div>
-                            </div>
+                        <div class="relative w-32 h-32 flex justify-center items-center">
+                            <img id="shumbha-icon-image" src="https://github.com/ckrishk/spiritual_pages/blob/main/dusherra/resources/dus_durga_1.png" alt="Shumbha Nishumbha icon" class="w-32 h-32 object-contain">
                         </div>
                         <h3 class="text-2xl font-bold text-cyan-800">The Final Battle: Shumbha & Nishumbha</h3>
                     </div>
@@ -512,14 +443,11 @@
                 <div class="story-content">
                     <div class="mb-6">
                         <h4 class="text-xl font-semibold mb-2 text-cyan-900">The Story</h4>
-                        <div id="shumbha-story-image-container" class="relative w-full h-48 flex justify-center items-center mb-4">
-                            <img id="shumbha-story-image" src="https://placehold.co/300x200/000/FFF?text=Loading" alt="Goddess Durga defeating Shumbha and Nishumbha" class="w-full h-48 object-cover rounded-lg hidden">
-                            <div id="loading-spinner-shumbha-story" class="absolute hidden">
-                                <div class="loading-spinner"></div>
-                            </div>
+                        <div class="relative w-full h-48 flex justify-center items-center mb-4">
+                            <img id="shumbha-story-image" src="https://github.com/ckrishk/spiritual_pages/blob/main/dusherra/resources/dus_durga_2.png" alt="Goddess Durga defeating Shumbha and Nishumbha" class="w-full h-48 object-cover rounded-lg">
                         </div>
                         <p class="text-lg text-cyan-800 mb-2">
-                            After losing their commanders, the demon kings **Shumbha and Nishumbha** confronted Goddess Durga themselves. As they approached, the seven mothers (**Saptamatrikas**) who were fighting alongside Durga were consumed by her, and their powers were absorbed back into her. Durga declared that there was no other goddess besides her; all were manifestations of her own divine power.
+                            After losing their commanders, the demon kings <b>Shumbha and Nishumbha</b> confronted Goddess Durga themselves. As they approached, the seven mothers (<b>Saptamatrikas</b>) who were fighting alongside Durga were consumed by her, and their powers were absorbed back into her. Durga declared that there was no other goddess besides her; all were manifestations of her own divine power.
                         </p>
                         <p class="text-lg text-cyan-800 mb-4">
                             In a fierce final battle, Durga first defeated Nishumbha. Shumbha, enraged, challenged her directly. Durga's power, now unified and complete, was overwhelming. She destroyed Shumbha with a single strike, ending his reign of terror and restoring cosmic order.
@@ -528,8 +456,8 @@
                     <div>
                         <h4 class="text-xl font-semibold mb-2 text-cyan-900">Symbolic Meaning</h4>
                         <ul class="list-disc list-inside space-y-2 text-cyan-800">
-                            <li>**Shumbha and Nishumbha:** They represent the peak of **arrogance and ignorance**, the belief that one's ego is the ultimate power. Their defeat shows that the greatest darkness is overcome by the ultimate, unified light.</li>
-                            <li>**The Seven Mothers:** The seven mothers joining into one symbolizes that the divine power, while appearing in many forms, is ultimately **one unified force**. To face the greatest evil, all aspects of strength must come together.</li>
+                            <li><b>Shumbha and Nishumbha:</b> They represent the peak of <b>arrogance and ignorance</b>, the belief that one's ego is the ultimate power. Their defeat shows that the greatest darkness is overcome by the ultimate, unified light.</li>
+                            <li><b>The Seven Mothers:</b> The seven mothers joining into one symbolizes that the divine power, while appearing in many forms, is ultimately <b>one unified force</b>. To face the greatest evil, all aspects of strength must come together.</li>
                         </ul>
                     </div>
                 </div>
@@ -538,11 +466,8 @@
             <!-- Story: Vidyarambham -->
             <section class="story-card mb-12 flex flex-col md:flex-row items-center">
                 <div class="md:w-1/3 p-6 text-center">
-                    <div class="story-icon-image-container relative w-full h-32 flex justify-center items-center">
-                        <img id="vidyarambham-icon-image" src="https://placehold.co/128x128/4DD0E1/064E3B?text=Loading" alt="Vidyarambham icon" class="w-32 h-32 object-contain hidden">
-                        <div id="loading-spinner-vidyarambham-icon" class="absolute hidden">
-                            <div class="loading-spinner"></div>
-                        </div>
+                    <div class="relative w-full h-32">
+                        <img id="vidyarambham-icon-image" src="https://github.com/ckrishk/spiritual_pages/blob/main/dusherra/resources/dus_read.png" alt="Vidyarambham icon" class="w-32 h-32 object-contain mx-auto">
                     </div>
                     <h3 class="text-2xl font-bold mt-4 text-cyan-800">A Victory for Learning</h3>
                 </div>
@@ -557,11 +482,8 @@
             <!-- Story: Pandavas retrieving weapons -->
             <section class="story-card mb-12 flex flex-col md:flex-row items-center">
                 <div class="md:w-1/3 p-6 text-center">
-                    <div class="story-icon-image-container relative w-full h-32 flex justify-center items-center">
-                        <img id="pandavas-icon-image" src="https://placehold.co/128x128/FFD700/000000?text=Loading" alt="Pandavas icon" class="w-32 h-32 object-contain hidden">
-                        <div id="loading-spinner-pandavas-icon" class="absolute hidden">
-                            <div class="loading-spinner"></div>
-                        </div>
+                    <div class="relative w-full h-32">
+                        <img id="pandavas-icon-image" src="https://github.com/ckrishk/spiritual_pages/blob/main/dusherra/resources/dus_pandavas.png" alt="Pandavas icon" class="w-32 h-32 object-contain mx-auto">
                     </div>
                     <h3 class="text-2xl font-bold mt-4 text-cyan-800">The Pandavas' Secret</h3>
                 </div>
@@ -587,32 +509,25 @@
                 </div>
                 <div class="p-6 rounded-lg bg-cyan-100 shadow-sm">
                     <h3 class="font-bold text-xl text-cyan-800 mb-2">Inner Strength</h3>
-                    <p class="text-cyan-800">The festival is also a call to conquer our own inner demons like ego, anger, and jealousy.</p>
+                    <p class="text-cyan-800">The stories are also a call to conquer our own inner demons like ego, anger, and jealousy.</p>
                 </div>
             </div>
         </section>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', async () => {
+        document.addEventListener('DOMContentLoaded', () => {
             // Tab switching logic
             const storiesTab = document.getElementById('stories-tab');
             const celebrationsTab = document.getElementById('celebrations-tab');
             const storiesPage = document.getElementById('stories-page');
             const celebrationsPage = document.getElementById('celebrations-page');
 
-            let storiesImagesGenerated = false;
-
             storiesTab.addEventListener('click', () => {
                 storiesTab.classList.add('active');
                 celebrationsTab.classList.remove('active');
                 storiesPage.classList.add('active');
                 celebrationsPage.classList.remove('active');
-
-                if (!storiesImagesGenerated) {
-                    generateStoryImages();
-                    storiesImagesGenerated = true;
-                }
             });
 
             celebrationsTab.addEventListener('click', () => {
@@ -621,186 +536,6 @@
                 celebrationsPage.classList.add('active');
                 storiesPage.classList.remove('active');
             });
-
-            // Reusable function to generate and embed an image
-            const generateAndEmbedImage = async (imageElementId, spinnerElementId, prompt) => {
-                const imageElement = document.getElementById(imageElementId);
-                const spinnerElement = document.getElementById(spinnerElementId);
-
-                // Show spinner and hide placeholder before generating
-                imageElement.classList.add('hidden');
-                spinnerElement.classList.remove('hidden');
-
-                const payload = {
-                    instances: { prompt: prompt },
-                    parameters: { "sampleCount": 1 }
-                };
-                const apiKey = "";
-                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-002:predict?key=${apiKey}`;
-
-                let retries = 0;
-                const maxRetries = 5;
-                let delay = 1000;
-
-                while (retries < maxRetries) {
-                    try {
-                        const response = await fetch(apiUrl, {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify(payload)
-                        });
-
-                        if (response.status === 429) {
-                            retries++;
-                            await new Promise(res => setTimeout(res, delay));
-                            delay *= 2;
-                            continue;
-                        }
-
-                        if (!response.ok) {
-                            throw new Error('Image generation failed');
-                        }
-
-                        const result = await response.json();
-                        if (result.predictions && result.predictions.length > 0 && result.predictions[0].bytesBase64Encoded) {
-                            const imageUrl = `data:image/png;base64,${result.predictions[0].bytesBase64Encoded}`;
-                            imageElement.src = imageUrl;
-                            imageElement.classList.remove('hidden');
-                            spinnerElement.classList.add('hidden');
-                            return;
-                        } else {
-                            throw new Error('Invalid API response');
-                        }
-                    } catch (error) {
-                        retries++;
-                        await new Promise(res => setTimeout(res, delay));
-                        delay *= 2;
-                        if (retries >= maxRetries) {
-                            console.error('Final image generation error after retries:', error);
-                            imageElement.alt = "Image generation failed.";
-                            spinnerElement.classList.add('hidden');
-                            imageElement.classList.remove('hidden');
-                        }
-                    }
-                }
-            };
-            
-            // Function to generate celebration and offering images on page load
-            const generateCelebrationImages = async () => {
-                await generateAndEmbedImage(
-                    'north-india-image', 
-                    'loading-spinner-north', 
-                    'A vibrant scene in North India during Dussehra. A large, towering effigy of Ravana is on fire in a public park, with a crowd of people watching. The sky is dark, lit by fireworks exploding in the background. The atmosphere is festive and joyful.'
-                );
-                await generateAndEmbedImage(
-                    'east-india-image',
-                    'loading-spinner-east',
-                    'A scene of Sindoor Khela during Durga Puja in Kolkata, India. Women in traditional white sarees with red borders are applying red vermilion powder to each other\'s faces. The atmosphere is joyous and celebratory.'
-                );
-                await generateAndEmbedImage(
-                    'south-india-image',
-                    'loading-spinner-south',
-                    'A grand procession during Mysore Dasara in Karnataka, India. A majestic elephant, decorated with elaborate gold ornaments and royal coverings, is carrying a golden throne. A large crowd is cheering from the side.'
-                );
-                await generateAndEmbedImage(
-                    'west-india-image',
-                    'loading-spinner-west',
-                    'A vibrant scene of Garba dance during Navaratri in Gujarat, India. A group of people are dancing in a circle with colorful traditional outfits. They are holding dandiya sticks. The scene is brightly lit with festive lights.'
-                );
-                await generateAndEmbedImage(
-                    'kala-chana-image',
-                    'loading-spinner-kala-chana',
-                    'A bowl of \'Kala Chana\' (black chickpeas) cooked with spices, a traditional Navaratri offering in North India, on a small banana leaf.'
-                );
-                await generateAndEmbedImage(
-                    'sweet-pongal-image',
-                    'loading-spinner-sweet-pongal',
-                    'A bowl of \'Sweet Pongal,\' a popular South Indian sweet dish made from rice, moong dal, jaggery, and ghee, garnished with cashews and raisins, served on a plate.'
-                );
-                await generateAndEmbedImage(
-                    'coconut-barfi-image',
-                    'loading-spinner-coconut-barfi',
-                    'A tray of fresh \'Coconut Barfi\' sweets, made from coconut and sugar, cut into diamond shapes and decorated with a silver foil on top.'
-                );
-            };
-
-            // Function to generate story images only when the tab is clicked
-            const generateStoryImages = async () => {
-                await generateAndEmbedImage(
-                    'rama-icon-image',
-                    'loading-spinner-rama-icon',
-                    'Lord Rama, a valiant prince, fighting the ten-headed demon king Ravana with a bow and arrow in a mythical battle scene.'
-                );
-                await generateAndEmbedImage(
-                    'durga-icon-image',
-                    'loading-spinner-durga-icon',
-                    'The goddess Durga, with multiple arms and weapons, riding a lion and slaying the buffalo demon Mahishasura.'
-                );
-                await generateAndEmbedImage(
-                    'vidyarambham-icon-image',
-                    'loading-spinner-vidyarambham-icon',
-                    'A young child is initiated into education, writing their first letters in a tray of rice with the help of an elder, as a part of the Vidyarambham ritual.'
-                );
-                await generateAndEmbedImage(
-                    'pandavas-icon-image',
-                    'loading-spinner-pandavas-icon',
-                    'The five Pandava brothers, in their attire from the Mahabharata, retrieving their powerful weapons from a large Shami tree.'
-                );
-                // New images for the Devi Mahatmya stories
-                await generateAndEmbedImage(
-                    'kali-icon-image',
-                    'loading-spinner-kali-icon',
-                    'Goddess Kali, a fierce manifestation with black skin, multiple arms, and a necklace of skulls, holding a sword and a severed head.'
-                );
-                await generateAndEmbedImage(
-                    'kali-story-image',
-                    'loading-spinner-kali-story',
-                    'The goddess Kali, with black skin and a fierce expression, beheading the two demons Chanda and Munda in a dramatic and powerful scene. The image should convey the defeat of arrogance and ignorance.'
-                );
-                 await generateAndEmbedImage(
-                    'rakta-icon-image',
-                    'loading-spinner-rakta-icon',
-                    'The demon Raktabija in a dynamic combat pose, with multiple identical clones of himself appearing from drops of blood on the battlefield.'
-                );
-                await generateAndEmbedImage(
-                    'rakta-story-image',
-                    'loading-spinner-rakta-story',
-                    'Goddess Durga and the Saptamatrikas fighting against the demon Raktabija. The battlefield is crowded with clones of the demon as his blood falls to the ground. The scene is chaotic and overwhelming for the goddesses.'
-                );
-                await generateAndEmbedImage(
-                    'rakta-slay-icon-image',
-                    'loading-spinner-rakta-slay-icon',
-                    'A fierce Goddess Kali in a dynamic action pose, with her tongue extended, actively drinking the blood of the demon Raktabija before it hits the ground.'
-                );
-                 await generateAndEmbedImage(
-                    'rakta-slay-story-image',
-                    'loading-spinner-rakta-slay-story',
-                    'Goddess Kali standing triumphant over the defeated demon Raktabija. She is holding a sword and a blood-filled bowl, with her fierce expression showing her power.'
-                );
-                await generateAndEmbedImage(
-                    'shumbha-icon-image',
-                    'loading-spinner-shumbha-icon',
-                    'Goddess Durga, a multi-armed goddess with a serene but determined expression, standing unified and alone, ready to face the demon kings Shumbha and Nishumbha.'
-                );
-                await generateAndEmbedImage(
-                    'shumbha-story-image',
-                    'loading-spinner-shumbha-story',
-                    'Goddess Durga in a decisive final battle, striking down the demon kings Shumbha and Nishumbha. The scene is epic and powerful, showing the ultimate victory of good over evil.'
-                );
-                await generateAndEmbedImage(
-                    'sapta-matrika-icon-image',
-                    'loading-spinner-sapta-matrika-icon',
-                    'A group of seven goddesses, the Sapta Matrikas, with their unique attributes and vehicles, standing in a unified and powerful formation.'
-                );
-                await generateAndEmbedImage(
-                    'sapta-matrika-story-image',
-                    'loading-spinner-sapta-matrika-story',
-                    'The seven goddesses, the Sapta Matrikas, in a battle scene, fiercely fighting against a horde of demons with their respective weapons. The image should show their combined power and ferocity.'
-                );
-            };
-
-            // Initial image generation for the "Celebrations" tab
-            generateCelebrationImages();
 
             // Expanding card logic
             const expandingCards = document.querySelectorAll('.expanding-card');
